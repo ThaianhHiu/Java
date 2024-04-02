@@ -2,6 +2,13 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "type": "java",
+      "name": "Giaodienchinh",
+      "request": "launch",
+      "mainClass": "GUI.Giaodienchinh",
+      "projectName": "Doanjavabanbanh_38b931b5"
+    },
+    {
       "name": "C/C++ Runner: Debug Session",
       "type": "cppdbg",
       "request": "launch",
