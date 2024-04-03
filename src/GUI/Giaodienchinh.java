@@ -49,6 +49,9 @@ public class Giaodienchinh extends javax.swing.JFrame {
         btnQuyen = new javax.swing.JButton();
         btnTKe = new javax.swing.JButton();
         pnCards = new javax.swing.JPanel();
+        pnLogin = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
         pnBanHang = new javax.swing.JPanel();
         jScrollBar1 = new javax.swing.JScrollBar();
         pnInHĐ = new javax.swing.JPanel();
@@ -123,9 +126,7 @@ public class Giaodienchinh extends javax.swing.JFrame {
         pnLsBanh1 = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
         tblLsSP1 = new javax.swing.JTable();
-        pnLogin = new javax.swing.JPanel();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
+        pnSanpham = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(172, 422));
@@ -340,6 +341,22 @@ public class Giaodienchinh extends javax.swing.JFrame {
         getContentPane().add(pnMenu, java.awt.BorderLayout.LINE_START);
 
         pnCards.setLayout(new java.awt.CardLayout());
+
+        pnLogin.setBackground(new java.awt.Color(0, 255, 204));
+        pnLogin.setLayout(new java.awt.BorderLayout());
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 204));
+        jPanel1.setLayout(new java.awt.GridLayout());
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 60)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(51, 255, 204));
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setText("Chào mừng bạn đã quay trở lại !!!!!!!!!!");
+        jPanel1.add(jLabel3);
+
+        pnLogin.add(jPanel1, java.awt.BorderLayout.CENTER);
+
+        pnCards.add(pnLogin, "CardTrangchu");
 
         pnBanHang.setBackground(new java.awt.Color(255, 255, 255));
         pnBanHang.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -1172,20 +1189,18 @@ public class Giaodienchinh extends javax.swing.JFrame {
 
         pnCards.add(pnNhaphang, "CardNhaphang");
 
-        pnLogin.setBackground(new java.awt.Color(0, 255, 204));
-        pnLogin.setLayout(new java.awt.BorderLayout());
+        javax.swing.GroupLayout pnSanphamLayout = new javax.swing.GroupLayout(pnSanpham);
+        pnSanpham.setLayout(pnSanphamLayout);
+        pnSanphamLayout.setHorizontalGroup(
+            pnSanphamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 932, Short.MAX_VALUE)
+        );
+        pnSanphamLayout.setVerticalGroup(
+            pnSanphamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 585, Short.MAX_VALUE)
+        );
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 204));
-
-        jLabel3.setBackground(new java.awt.Color(0, 255, 204));
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 3, 48)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 0, 0));
-        jLabel3.setText("Chào mừng bạn đã quay trở lại !!!");
-        jPanel1.add(jLabel3);
-
-        pnLogin.add(jPanel1, java.awt.BorderLayout.CENTER);
-
-        pnCards.add(pnLogin, "CardTrangchu");
+        pnCards.add(pnSanpham, "CardSP");
 
         getContentPane().add(pnCards, java.awt.BorderLayout.CENTER);
 
@@ -1440,6 +1455,7 @@ public class Giaodienchinh extends javax.swing.JFrame {
     private javax.swing.JPanel pnLsSPmua1;
     private javax.swing.JPanel pnMenu;
     private javax.swing.JPanel pnNhaphang;
+    private javax.swing.JPanel pnSanpham;
     private javax.swing.JPanel pnTTHĐ;
     private javax.swing.JPanel pnTTHĐ1;
     private javax.swing.JPanel pnThanhtoan;
