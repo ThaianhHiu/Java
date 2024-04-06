@@ -6,6 +6,13 @@
       "name": "Giaodienchinh",
       "request": "launch",
       "mainClass": "GUI.Giaodienchinh",
+      "projectName": "Doanjavabanbanh - Copy_ac66f873"
+    },
+    {
+      "type": "java",
+      "name": "Giaodienchinh",
+      "request": "launch",
+      "mainClass": "GUI.Giaodienchinh",
       "projectName": "Doanjavabanbanh_38b931b5"
     },
     {
