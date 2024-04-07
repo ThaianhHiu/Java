@@ -6,6 +6,20 @@
       "name": "Giaodienchinh",
       "request": "launch",
       "mainClass": "GUI.Giaodienchinh",
+      "projectName": "Doanjavabanbanh - verdangchinhsua_1227c9c"
+    },
+    {
+      "type": "java",
+      "name": "Login",
+      "request": "launch",
+      "mainClass": "GUI.Login",
+      "projectName": "Doanjavabanbanh - verdangchinhsua_1227c9c"
+    },
+    {
+      "type": "java",
+      "name": "Giaodienchinh",
+      "request": "launch",
+      "mainClass": "GUI.Giaodienchinh",
       "projectName": "Doanjavabanbanh - Copy_ac66f873"
     },
     {
