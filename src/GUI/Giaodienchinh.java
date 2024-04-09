@@ -15,8 +15,9 @@ import javax.swing.Timer;
  *
  * @author sinht
  */
-public class Giaodienchinh extends javax.swing.JFrame {
 
+public class Giaodienchinh extends javax.swing.JFrame {
+    public CardLayout card = new CardLayout();
     
     CardLayout cardlayout;
     public Giaodienchinh() {
@@ -65,6 +66,7 @@ public class Giaodienchinh extends javax.swing.JFrame {
      */
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
         pnMenu = new javax.swing.JPanel();
         pnacc = new javax.swing.JPanel();
@@ -82,8 +84,8 @@ public class Giaodienchinh extends javax.swing.JFrame {
         btnNV = new javax.swing.JButton();
         btnKH = new javax.swing.JButton();
         btnNCC = new javax.swing.JButton();
-        btnTK = new javax.swing.JButton();
         btnQuyen = new javax.swing.JButton();
+        btnTKhoan = new javax.swing.JButton();
         btnTKe = new javax.swing.JButton();
         btnDangxuat = new javax.swing.JButton();
         pnCards = new javax.swing.JPanel();
@@ -376,6 +378,7 @@ public class Giaodienchinh extends javax.swing.JFrame {
         pnCenter8 = new javax.swing.JPanel();
         jScrollPane13 = new javax.swing.JScrollPane();
         tblSP8 = new javax.swing.JTable();
+        pnTKhoan = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(172, 422));
@@ -567,19 +570,6 @@ public class Giaodienchinh extends javax.swing.JFrame {
         });
         pnlsMenu.add(btnNCC);
 
-        btnTK.setBackground(new java.awt.Color(0, 51, 51));
-        btnTK.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
-        btnTK.setForeground(new java.awt.Color(51, 255, 204));
-        btnTK.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/user.png"))); // NOI18N
-        btnTK.setText("Tài Khoản");
-        btnTK.setBorderPainted(false);
-        btnTK.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnTKActionPerformed(evt);
-            }
-        });
-        pnlsMenu.add(btnTK);
-
         btnQuyen.setBackground(new java.awt.Color(0, 51, 51));
         btnQuyen.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
         btnQuyen.setForeground(new java.awt.Color(51, 255, 204));
@@ -593,9 +583,23 @@ public class Giaodienchinh extends javax.swing.JFrame {
         });
         pnlsMenu.add(btnQuyen);
 
+        btnTKhoan.setBackground(new java.awt.Color(0, 51, 51));
+        btnTKhoan.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
+        btnTKhoan.setForeground(new java.awt.Color(51, 255, 204));
+        btnTKhoan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/user.png"))); // NOI18N
+        btnTKhoan.setText("Tài Khoản");
+        btnTKhoan.setBorderPainted(false);
+        btnTKhoan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTKhoanActionPerformed(evt);
+            }
+        });
+        pnlsMenu.add(btnTKhoan);
+
         btnTKe.setBackground(new java.awt.Color(0, 51, 51));
         btnTKe.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
         btnTKe.setForeground(new java.awt.Color(51, 255, 204));
+        btnTKe.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/analytics.png"))); // NOI18N
         btnTKe.setText("Thống kê");
         btnTKe.setBorderPainted(false);
         btnTKe.addActionListener(new java.awt.event.ActionListener() {
@@ -4214,6 +4218,19 @@ public class Giaodienchinh extends javax.swing.JFrame {
 
         pnCards.add(pnQuyen, "CardQuyen");
 
+        javax.swing.GroupLayout pnTKhoanLayout = new javax.swing.GroupLayout(pnTKhoan);
+        pnTKhoan.setLayout(pnTKhoanLayout);
+        pnTKhoanLayout.setHorizontalGroup(
+            pnTKhoanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1361, Short.MAX_VALUE)
+        );
+        pnTKhoanLayout.setVerticalGroup(
+            pnTKhoanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 857, Short.MAX_VALUE)
+        );
+
+        pnCards.add(pnTKhoan, "CardTK");
+
         getContentPane().add(pnCards, java.awt.BorderLayout.CENTER);
 
         pack();
@@ -4269,11 +4286,6 @@ public class Giaodienchinh extends javax.swing.JFrame {
         cardlayout.show(pnCards, "CardNCC");
     }//GEN-LAST:event_btnNCCActionPerformed
 
-    private void btnTKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTKActionPerformed
-        // TODO add your handling code here:
-        cardlayout.show(pnCards, "CardTKK");
-    }//GEN-LAST:event_btnTKActionPerformed
-
     private void btnQuyenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQuyenActionPerformed
         // TODO add your handling code here:
         cardlayout.show(pnCards, "CardQuyen");
@@ -4281,6 +4293,8 @@ public class Giaodienchinh extends javax.swing.JFrame {
 
     private void btnTKeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTKeActionPerformed
         // TODO add your handling code here:
+        pnCards.add(new pnTKe(),"CardTKe");
+        cardlayout.show(pnCards, "CardTKe");
     }//GEN-LAST:event_btnTKeActionPerformed
 
     private void txtMaHĐActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMaHĐActionPerformed
@@ -4616,6 +4630,12 @@ public class Giaodienchinh extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton64ActionPerformed
 
+    private void btnTKhoanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTKhoanActionPerformed
+        // TODO add your handling code here:
+        pnCards.add(new pnTK(),"CardTK");
+        cardlayout.show(pnCards, "CardTK");
+    }//GEN-LAST:event_btnTKhoanActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -4667,13 +4687,16 @@ public class Giaodienchinh extends javax.swing.JFrame {
     private javax.swing.JButton btnPN;
     private javax.swing.JButton btnQuyen;
     private javax.swing.JButton btnSP;
-    private javax.swing.JButton btnTK;
     private javax.swing.JButton btnTKe;
+    private javax.swing.JButton btnTKhoan;
     private javax.swing.JButton btnThemSP;
     private javax.swing.JButton btnThemSP1;
     private javax.swing.JButton btnTimkiem;
     private javax.swing.JButton btnTimkiem1;
     private javax.swing.JComboBox<String> cmbKM;
+    private javax.swing.JDialog dlogUpdateAcc;
+    private javax.swing.JDialog dlogUpdateAcc1;
+    private javax.swing.JDialog dlogUpdateAcc2;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
@@ -4758,7 +4781,10 @@ public class Giaodienchinh extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -4797,7 +4823,10 @@ public class Giaodienchinh extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel36;
     private javax.swing.JPanel jPanel37;
     private javax.swing.JPanel jPanel38;
+    private javax.swing.JPanel jPanel39;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel40;
+    private javax.swing.JPanel jPanel41;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
@@ -4903,6 +4932,7 @@ public class Giaodienchinh extends javax.swing.JFrame {
     private javax.swing.JPanel pnPhieuNhap;
     private javax.swing.JPanel pnQuyen;
     private javax.swing.JPanel pnSanpham;
+    private javax.swing.JPanel pnTKhoan;
     private javax.swing.JPanel pnTTHĐ;
     private javax.swing.JPanel pnTTHĐ1;
     private javax.swing.JPanel pnThanhtoan;
@@ -4963,5 +4993,8 @@ public class Giaodienchinh extends javax.swing.JFrame {
     private javax.swing.JTextField txtThanhtien1;
     private javax.swing.JTextField txtTimkiem;
     private javax.swing.JTextField txtTimkiem1;
+    private javax.swing.JTextField txtfullname1;
+    private javax.swing.JTextField txtfullname2;
+    private javax.swing.JTextField txtfullname3;
     // End of variables declaration//GEN-END:variables
 }
