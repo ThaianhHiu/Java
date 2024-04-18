@@ -10,6 +10,8 @@ import java.awt.event.ActionListener;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import javax.swing.Timer;
+import BUS.SP_BUS;
+import DTO.SP_DTO;
 
 /**
  *
@@ -66,7 +68,6 @@ public class Giaodienchinh extends javax.swing.JFrame {
      */
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        java.awt.GridBagConstraints gridBagConstraints;
 
         pnMenu = new javax.swing.JPanel();
         pnacc = new javax.swing.JPanel();
@@ -180,38 +181,6 @@ public class Giaodienchinh extends javax.swing.JFrame {
         pnLsBanh1 = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
         tblLsSP1 = new javax.swing.JTable();
-        pnSanpham = new javax.swing.JPanel();
-        pnTop2 = new javax.swing.JPanel();
-        jPanel14 = new javax.swing.JPanel();
-        jButton14 = new javax.swing.JButton();
-        jButton15 = new javax.swing.JButton();
-        jButton26 = new javax.swing.JButton();
-        jButton27 = new javax.swing.JButton();
-        jButton28 = new javax.swing.JButton();
-        jPanel15 = new javax.swing.JPanel();
-        jPanel16 = new javax.swing.JPanel();
-        jComboBox3 = new javax.swing.JComboBox<>();
-        jTextField17 = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
-        jPanel17 = new javax.swing.JPanel();
-        jTextField18 = new javax.swing.JTextField();
-        jTextField19 = new javax.swing.JTextField();
-        jLabel9 = new javax.swing.JLabel();
-        jPanel18 = new javax.swing.JPanel();
-        jTextField20 = new javax.swing.JTextField();
-        jLabel10 = new javax.swing.JLabel();
-        jTextField21 = new javax.swing.JTextField();
-        jButton29 = new javax.swing.JButton();
-        pnBottom1 = new javax.swing.JPanel();
-        pnHinhanh1 = new javax.swing.JPanel();
-        txtHienthiLoai1 = new javax.swing.JTextField();
-        txtHienthiMa1 = new javax.swing.JTextField();
-        txtHienthiGia1 = new javax.swing.JTextField();
-        txtHienthiTen1 = new javax.swing.JTextField();
-        txtHienthiSoluong1 = new javax.swing.JTextField();
-        pnCenter2 = new javax.swing.JPanel();
-        jScrollPane7 = new javax.swing.JScrollPane();
-        tblSP2 = new javax.swing.JTable();
         pnLoaiSP = new javax.swing.JPanel();
         pnTop1 = new javax.swing.JPanel();
         jPanel11 = new javax.swing.JPanel();
@@ -437,10 +406,10 @@ public class Giaodienchinh extends javax.swing.JFrame {
 
         pnMenu.add(pnacc, java.awt.BorderLayout.PAGE_START);
 
-        pnlsMenu.setBackground(new java.awt.Color(0, 51, 51));
+        pnlsMenu.setBackground(new java.awt.Color(0, 0, 0));
         pnlsMenu.setLayout(new java.awt.GridLayout(14, 1, 0, 5));
 
-        btnBanhang.setBackground(new java.awt.Color(0, 51, 51));
+        btnBanhang.setBackground(new java.awt.Color(51, 51, 51));
         btnBanhang.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
         btnBanhang.setForeground(new java.awt.Color(51, 255, 204));
         btnBanhang.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/iconbanhang.png"))); // NOI18N
@@ -453,7 +422,7 @@ public class Giaodienchinh extends javax.swing.JFrame {
         });
         pnlsMenu.add(btnBanhang);
 
-        btnNhaphang.setBackground(new java.awt.Color(0, 51, 51));
+        btnNhaphang.setBackground(new java.awt.Color(51, 51, 51));
         btnNhaphang.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
         btnNhaphang.setForeground(new java.awt.Color(51, 255, 204));
         btnNhaphang.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/iconnhaphang.24.png"))); // NOI18N
@@ -466,7 +435,7 @@ public class Giaodienchinh extends javax.swing.JFrame {
         });
         pnlsMenu.add(btnNhaphang);
 
-        btnSP.setBackground(new java.awt.Color(0, 51, 51));
+        btnSP.setBackground(new java.awt.Color(51, 51, 51));
         btnSP.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
         btnSP.setForeground(new java.awt.Color(51, 255, 204));
         btnSP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/iconsp.png"))); // NOI18N
@@ -479,7 +448,7 @@ public class Giaodienchinh extends javax.swing.JFrame {
         });
         pnlsMenu.add(btnSP);
 
-        btnLoaiSP.setBackground(new java.awt.Color(0, 51, 51));
+        btnLoaiSP.setBackground(new java.awt.Color(51, 51, 51));
         btnLoaiSP.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
         btnLoaiSP.setForeground(new java.awt.Color(51, 255, 204));
         btnLoaiSP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/iconloaisp.png"))); // NOI18N
@@ -492,7 +461,7 @@ public class Giaodienchinh extends javax.swing.JFrame {
         });
         pnlsMenu.add(btnLoaiSP);
 
-        btnHoadon.setBackground(new java.awt.Color(0, 51, 51));
+        btnHoadon.setBackground(new java.awt.Color(51, 51, 51));
         btnHoadon.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
         btnHoadon.setForeground(new java.awt.Color(51, 255, 204));
         btnHoadon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/bill.png"))); // NOI18N
@@ -505,7 +474,7 @@ public class Giaodienchinh extends javax.swing.JFrame {
         });
         pnlsMenu.add(btnHoadon);
 
-        btnPN.setBackground(new java.awt.Color(0, 51, 51));
+        btnPN.setBackground(new java.awt.Color(51, 51, 51));
         btnPN.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
         btnPN.setForeground(new java.awt.Color(51, 255, 204));
         btnPN.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/enter.png"))); // NOI18N
@@ -518,7 +487,7 @@ public class Giaodienchinh extends javax.swing.JFrame {
         });
         pnlsMenu.add(btnPN);
 
-        btnKM.setBackground(new java.awt.Color(0, 51, 51));
+        btnKM.setBackground(new java.awt.Color(51, 51, 51));
         btnKM.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
         btnKM.setForeground(new java.awt.Color(51, 255, 204));
         btnKM.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/promotion.png"))); // NOI18N
@@ -531,7 +500,7 @@ public class Giaodienchinh extends javax.swing.JFrame {
         });
         pnlsMenu.add(btnKM);
 
-        btnNV.setBackground(new java.awt.Color(0, 51, 51));
+        btnNV.setBackground(new java.awt.Color(51, 51, 51));
         btnNV.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
         btnNV.setForeground(new java.awt.Color(51, 255, 204));
         btnNV.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/grouping.png"))); // NOI18N
@@ -544,7 +513,7 @@ public class Giaodienchinh extends javax.swing.JFrame {
         });
         pnlsMenu.add(btnNV);
 
-        btnKH.setBackground(new java.awt.Color(0, 51, 51));
+        btnKH.setBackground(new java.awt.Color(51, 51, 51));
         btnKH.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
         btnKH.setForeground(new java.awt.Color(51, 255, 204));
         btnKH.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/client.png"))); // NOI18N
@@ -557,7 +526,7 @@ public class Giaodienchinh extends javax.swing.JFrame {
         });
         pnlsMenu.add(btnKH);
 
-        btnNCC.setBackground(new java.awt.Color(0, 51, 51));
+        btnNCC.setBackground(new java.awt.Color(51, 51, 51));
         btnNCC.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
         btnNCC.setForeground(new java.awt.Color(51, 255, 204));
         btnNCC.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/supplier.png"))); // NOI18N
@@ -570,7 +539,7 @@ public class Giaodienchinh extends javax.swing.JFrame {
         });
         pnlsMenu.add(btnNCC);
 
-        btnQuyen.setBackground(new java.awt.Color(0, 51, 51));
+        btnQuyen.setBackground(new java.awt.Color(51, 51, 51));
         btnQuyen.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
         btnQuyen.setForeground(new java.awt.Color(51, 255, 204));
         btnQuyen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/open.png"))); // NOI18N
@@ -583,7 +552,7 @@ public class Giaodienchinh extends javax.swing.JFrame {
         });
         pnlsMenu.add(btnQuyen);
 
-        btnTKhoan.setBackground(new java.awt.Color(0, 51, 51));
+        btnTKhoan.setBackground(new java.awt.Color(51, 51, 51));
         btnTKhoan.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
         btnTKhoan.setForeground(new java.awt.Color(51, 255, 204));
         btnTKhoan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/user.png"))); // NOI18N
@@ -596,7 +565,7 @@ public class Giaodienchinh extends javax.swing.JFrame {
         });
         pnlsMenu.add(btnTKhoan);
 
-        btnTKe.setBackground(new java.awt.Color(0, 51, 51));
+        btnTKe.setBackground(new java.awt.Color(51, 51, 51));
         btnTKe.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
         btnTKe.setForeground(new java.awt.Color(51, 255, 204));
         btnTKe.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/analytics.png"))); // NOI18N
@@ -609,7 +578,7 @@ public class Giaodienchinh extends javax.swing.JFrame {
         });
         pnlsMenu.add(btnTKe);
 
-        btnDangxuat.setBackground(new java.awt.Color(0, 51, 51));
+        btnDangxuat.setBackground(new java.awt.Color(51, 51, 51));
         btnDangxuat.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
         btnDangxuat.setForeground(new java.awt.Color(51, 255, 204));
         btnDangxuat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/exit_1.png"))); // NOI18N
@@ -1596,381 +1565,6 @@ public class Giaodienchinh extends javax.swing.JFrame {
         pnNhaphang.add(pnLsSP1, java.awt.BorderLayout.CENTER);
 
         pnCards.add(pnNhaphang, "CardNhaphang");
-
-        pnSanpham.setLayout(new java.awt.BorderLayout());
-
-        pnTop2.setBackground(new java.awt.Color(204, 255, 255));
-        pnTop2.setPreferredSize(new java.awt.Dimension(1361, 150));
-        pnTop2.setLayout(new java.awt.BorderLayout());
-
-        jPanel14.setBackground(new java.awt.Color(153, 255, 255));
-        jPanel14.setPreferredSize(new java.awt.Dimension(1085, 50));
-
-        jButton14.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButton14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/add1.png"))); // NOI18N
-        jButton14.setText("Thêm ");
-        jPanel14.add(jButton14);
-
-        jButton15.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButton15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/del.png"))); // NOI18N
-        jButton15.setText("Xóa");
-        jButton15.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton15ActionPerformed(evt);
-            }
-        });
-        jPanel14.add(jButton15);
-
-        jButton26.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButton26.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/sua.png"))); // NOI18N
-        jButton26.setText("Sửa");
-        jButton26.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton26ActionPerformed(evt);
-            }
-        });
-        jPanel14.add(jButton26);
-
-        jButton27.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButton27.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/xls.png"))); // NOI18N
-        jButton27.setText("Xuất Excel");
-        jButton27.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton27ActionPerformed(evt);
-            }
-        });
-        jPanel14.add(jButton27);
-
-        jButton28.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButton28.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/excel.png"))); // NOI18N
-        jButton28.setText("Nhập Excel ");
-        jButton28.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton28ActionPerformed(evt);
-            }
-        });
-        jPanel14.add(jButton28);
-
-        pnTop2.add(jPanel14, java.awt.BorderLayout.PAGE_START);
-
-        jPanel15.setBackground(new java.awt.Color(153, 255, 255));
-        jPanel15.setPreferredSize(new java.awt.Dimension(1085, 150));
-
-        jPanel16.setBackground(new java.awt.Color(204, 255, 255));
-        jPanel16.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
-        jComboBox3.setBackground(new java.awt.Color(204, 255, 255));
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tất cả", "Bánh ngọt ", "Bánh xe" }));
-
-        jTextField17.setBackground(new java.awt.Color(153, 255, 255));
-
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 51, 102));
-        jLabel8.setText("Tìm kiếm");
-
-        javax.swing.GroupLayout jPanel16Layout = new javax.swing.GroupLayout(jPanel16);
-        jPanel16.setLayout(jPanel16Layout);
-        jPanel16Layout.setHorizontalGroup(
-            jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel16Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField17, javax.swing.GroupLayout.DEFAULT_SIZE, 242, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        jPanel16Layout.setVerticalGroup(
-            jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel16Layout.createSequentialGroup()
-                .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel16Layout.createSequentialGroup()
-                        .addComponent(jLabel8)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel16Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jTextField17)))
-                .addContainerGap())
-        );
-
-        jPanel15.add(jPanel16);
-
-        jPanel17.setBackground(new java.awt.Color(204, 255, 255));
-        jPanel17.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
-        jTextField18.setBackground(new java.awt.Color(153, 255, 255));
-        jTextField18.setBorder(javax.swing.BorderFactory.createTitledBorder("Từ"));
-        jTextField18.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField18ActionPerformed(evt);
-            }
-        });
-
-        jTextField19.setBackground(new java.awt.Color(153, 255, 255));
-        jTextField19.setBorder(javax.swing.BorderFactory.createTitledBorder("Tới"));
-
-        jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(255, 51, 51));
-        jLabel9.setText("Số lượng");
-
-        javax.swing.GroupLayout jPanel17Layout = new javax.swing.GroupLayout(jPanel17);
-        jPanel17.setLayout(jPanel17Layout);
-        jPanel17Layout.setHorizontalGroup(
-            jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel17Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel9)
-                    .addGroup(jPanel17Layout.createSequentialGroup()
-                        .addComponent(jTextField18, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jTextField19, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel17Layout.setVerticalGroup(
-            jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel17Layout.createSequentialGroup()
-                .addComponent(jLabel9)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-        );
-
-        jPanel15.add(jPanel17);
-
-        jPanel18.setBackground(new java.awt.Color(204, 255, 255));
-        jPanel18.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
-        jTextField20.setBackground(new java.awt.Color(153, 255, 255));
-        jTextField20.setBorder(javax.swing.BorderFactory.createTitledBorder("Từ"));
-
-        jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(255, 51, 51));
-        jLabel10.setText("Đơn giá");
-
-        jTextField21.setBackground(new java.awt.Color(153, 255, 255));
-        jTextField21.setBorder(javax.swing.BorderFactory.createTitledBorder("Tới"));
-
-        javax.swing.GroupLayout jPanel18Layout = new javax.swing.GroupLayout(jPanel18);
-        jPanel18.setLayout(jPanel18Layout);
-        jPanel18Layout.setHorizontalGroup(
-            jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel18Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel18Layout.createSequentialGroup()
-                        .addComponent(jTextField20, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField21, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(10, Short.MAX_VALUE))
-        );
-        jPanel18Layout.setVerticalGroup(
-            jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel18Layout.createSequentialGroup()
-                .addComponent(jLabel10)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField20, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-        );
-
-        jPanel15.add(jPanel18);
-
-        jButton29.setBackground(new java.awt.Color(153, 255, 153));
-        jButton29.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButton29.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/refresh.png"))); // NOI18N
-        jButton29.setText("Làm mới");
-        jButton29.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton29ActionPerformed(evt);
-            }
-        });
-        jPanel15.add(jButton29);
-
-        pnTop2.add(jPanel15, java.awt.BorderLayout.CENTER);
-
-        pnSanpham.add(pnTop2, java.awt.BorderLayout.PAGE_START);
-
-        pnBottom1.setBackground(new java.awt.Color(255, 255, 255));
-        pnBottom1.setMinimumSize(new java.awt.Dimension(100, 150));
-
-        javax.swing.GroupLayout pnHinhanh1Layout = new javax.swing.GroupLayout(pnHinhanh1);
-        pnHinhanh1.setLayout(pnHinhanh1Layout);
-        pnHinhanh1Layout.setHorizontalGroup(
-            pnHinhanh1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 168, Short.MAX_VALUE)
-        );
-        pnHinhanh1Layout.setVerticalGroup(
-            pnHinhanh1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 134, Short.MAX_VALUE)
-        );
-
-        pnBottom1.add(pnHinhanh1);
-
-        txtHienthiLoai1.setBorder(javax.swing.BorderFactory.createTitledBorder("Loại SP"));
-        txtHienthiLoai1.setPreferredSize(new java.awt.Dimension(80, 60));
-        txtHienthiLoai1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtHienthiLoai1ActionPerformed(evt);
-            }
-        });
-        pnBottom1.add(txtHienthiLoai1);
-
-        txtHienthiMa1.setBorder(javax.swing.BorderFactory.createTitledBorder("Mã SP"));
-        txtHienthiMa1.setPreferredSize(new java.awt.Dimension(80, 60));
-        pnBottom1.add(txtHienthiMa1);
-
-        txtHienthiGia1.setBorder(javax.swing.BorderFactory.createTitledBorder("Đơn giá"));
-        txtHienthiGia1.setPreferredSize(new java.awt.Dimension(80, 60));
-        pnBottom1.add(txtHienthiGia1);
-
-        txtHienthiTen1.setBorder(javax.swing.BorderFactory.createTitledBorder("Tên SP"));
-        txtHienthiTen1.setPreferredSize(new java.awt.Dimension(80, 60));
-        pnBottom1.add(txtHienthiTen1);
-
-        txtHienthiSoluong1.setBorder(javax.swing.BorderFactory.createTitledBorder("Số lượng"));
-        txtHienthiSoluong1.setPreferredSize(new java.awt.Dimension(80, 60));
-        pnBottom1.add(txtHienthiSoluong1);
-
-        pnSanpham.add(pnBottom1, java.awt.BorderLayout.PAGE_END);
-
-        pnCenter2.setBackground(new java.awt.Color(255, 204, 255));
-        pnCenter2.setPreferredSize(new java.awt.Dimension(161, 450));
-
-        tblSP2.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null}
-            },
-            new String [] {
-                "STT", "Mã SP", "Mã Loại", "Tên", "Đơn giá", "Số lượng", "Hình ảnh", "Nơi SX", "Ngày SX", "Ngày hết hạn", "Trạng thái"
-            }
-        ));
-        tblSP2.setShowGrid(true);
-        tblSP2.setSurrendersFocusOnKeystroke(true);
-        jScrollPane7.setViewportView(tblSP2);
-
-        javax.swing.GroupLayout pnCenter2Layout = new javax.swing.GroupLayout(pnCenter2);
-        pnCenter2.setLayout(pnCenter2Layout);
-        pnCenter2Layout.setHorizontalGroup(
-            pnCenter2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnCenter2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 1349, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        pnCenter2Layout.setVerticalGroup(
-            pnCenter2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnCenter2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 471, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(86, Short.MAX_VALUE))
-        );
-
-        pnSanpham.add(pnCenter2, java.awt.BorderLayout.CENTER);
-
-        pnCards.add(pnSanpham, "CardSP");
 
         pnLoaiSP.setLayout(new java.awt.BorderLayout());
 
@@ -4253,6 +3847,7 @@ public class Giaodienchinh extends javax.swing.JFrame {
 
     private void btnSPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSPActionPerformed
         // TODO add your handling code here:
+        pnCards.add(new pnSanPham(),"CardSP");
         cardlayout.show(pnCards, "CardSP");
     }//GEN-LAST:event_btnSPActionPerformed
 
@@ -4447,34 +4042,6 @@ public class Giaodienchinh extends javax.swing.JFrame {
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton13ActionPerformed
-
-    private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton15ActionPerformed
-
-    private void jButton26ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton26ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton26ActionPerformed
-
-    private void jButton27ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton27ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton27ActionPerformed
-
-    private void jButton28ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton28ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton28ActionPerformed
-
-    private void jTextField18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField18ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField18ActionPerformed
-
-    private void jButton29ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton29ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton29ActionPerformed
-
-    private void txtHienthiLoai1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtHienthiLoai1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtHienthiLoai1ActionPerformed
 
     private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
         // TODO add your handling code here:
@@ -4694,16 +4261,11 @@ public class Giaodienchinh extends javax.swing.JFrame {
     private javax.swing.JButton btnTimkiem;
     private javax.swing.JButton btnTimkiem1;
     private javax.swing.JComboBox<String> cmbKM;
-    private javax.swing.JDialog dlogUpdateAcc;
-    private javax.swing.JDialog dlogUpdateAcc1;
-    private javax.swing.JDialog dlogUpdateAcc2;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton13;
-    private javax.swing.JButton jButton14;
-    private javax.swing.JButton jButton15;
     private javax.swing.JButton jButton16;
     private javax.swing.JButton jButton17;
     private javax.swing.JButton jButton18;
@@ -4715,10 +4277,6 @@ public class Giaodienchinh extends javax.swing.JFrame {
     private javax.swing.JButton jButton23;
     private javax.swing.JButton jButton24;
     private javax.swing.JButton jButton25;
-    private javax.swing.JButton jButton26;
-    private javax.swing.JButton jButton27;
-    private javax.swing.JButton jButton28;
-    private javax.swing.JButton jButton29;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton30;
     private javax.swing.JButton jButton31;
@@ -4763,7 +4321,6 @@ public class Giaodienchinh extends javax.swing.JFrame {
     private javax.swing.JButton jButton9;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JComboBox<String> jComboBox4;
     private javax.swing.JComboBox<String> jComboBox5;
     private javax.swing.JComboBox<String> jComboBox6;
@@ -4771,7 +4328,6 @@ public class Giaodienchinh extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jComboBox8;
     private javax.swing.JComboBox<String> jComboBox9;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
@@ -4781,26 +4337,16 @@ public class Giaodienchinh extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel30;
-    private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel13;
-    private javax.swing.JPanel jPanel14;
-    private javax.swing.JPanel jPanel15;
-    private javax.swing.JPanel jPanel16;
-    private javax.swing.JPanel jPanel17;
-    private javax.swing.JPanel jPanel18;
     private javax.swing.JPanel jPanel19;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel20;
@@ -4823,10 +4369,7 @@ public class Giaodienchinh extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel36;
     private javax.swing.JPanel jPanel37;
     private javax.swing.JPanel jPanel38;
-    private javax.swing.JPanel jPanel39;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel40;
-    private javax.swing.JPanel jPanel41;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
@@ -4844,7 +4387,6 @@ public class Giaodienchinh extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
-    private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JTable jTable2;
@@ -4857,12 +4399,7 @@ public class Giaodienchinh extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField14;
     private javax.swing.JTextField jTextField15;
     private javax.swing.JTextField jTextField16;
-    private javax.swing.JTextField jTextField17;
-    private javax.swing.JTextField jTextField18;
-    private javax.swing.JTextField jTextField19;
     private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField20;
-    private javax.swing.JTextField jTextField21;
     private javax.swing.JTextField jTextField22;
     private javax.swing.JTextField jTextField23;
     private javax.swing.JTextField jTextField24;
@@ -4895,12 +4432,10 @@ public class Giaodienchinh extends javax.swing.JFrame {
     private javax.swing.JLabel lbThanhtien1;
     private javax.swing.JPanel pnBanHang;
     private javax.swing.JPanel pnBottom;
-    private javax.swing.JPanel pnBottom1;
     private javax.swing.JPanel pnBottom2;
     private javax.swing.JPanel pnCards;
     private javax.swing.JPanel pnCenter;
     private javax.swing.JPanel pnCenter1;
-    private javax.swing.JPanel pnCenter2;
     private javax.swing.JPanel pnCenter3;
     private javax.swing.JPanel pnCenter4;
     private javax.swing.JPanel pnCenter5;
@@ -4909,7 +4444,6 @@ public class Giaodienchinh extends javax.swing.JFrame {
     private javax.swing.JPanel pnCenter8;
     private javax.swing.JPanel pnHienthiSP;
     private javax.swing.JPanel pnHienthiSP1;
-    private javax.swing.JPanel pnHinhanh1;
     private javax.swing.JPanel pnHoadon;
     private javax.swing.JPanel pnInHĐ;
     private javax.swing.JPanel pnInHĐ1;
@@ -4931,7 +4465,6 @@ public class Giaodienchinh extends javax.swing.JFrame {
     private javax.swing.JPanel pnNhaphang;
     private javax.swing.JPanel pnPhieuNhap;
     private javax.swing.JPanel pnQuyen;
-    private javax.swing.JPanel pnSanpham;
     private javax.swing.JPanel pnTKhoan;
     private javax.swing.JPanel pnTTHĐ;
     private javax.swing.JPanel pnTTHĐ1;
@@ -4941,7 +4474,6 @@ public class Giaodienchinh extends javax.swing.JFrame {
     private javax.swing.JPanel pnTimkiem1;
     private javax.swing.JPanel pnTop;
     private javax.swing.JPanel pnTop1;
-    private javax.swing.JPanel pnTop2;
     private javax.swing.JPanel pnTop3;
     private javax.swing.JPanel pnTop4;
     private javax.swing.JPanel pnTop5;
@@ -4954,7 +4486,6 @@ public class Giaodienchinh extends javax.swing.JFrame {
     private javax.swing.JTable tblLsSP1;
     private javax.swing.JTable tblSP;
     private javax.swing.JTable tblSP1;
-    private javax.swing.JTable tblSP2;
     private javax.swing.JTable tblSP3;
     private javax.swing.JTable tblSP4;
     private javax.swing.JTable tblSP5;
@@ -4964,23 +4495,18 @@ public class Giaodienchinh extends javax.swing.JFrame {
     private javax.swing.JTextField txtGioLap;
     private javax.swing.JTextField txtGioNhap;
     private javax.swing.JTextField txtHienthiGia;
-    private javax.swing.JTextField txtHienthiGia1;
     private javax.swing.JTextField txtHienthiGia2;
     private javax.swing.JTextField txtHienthiLoai;
-    private javax.swing.JTextField txtHienthiLoai1;
     private javax.swing.JTextField txtHienthiLoai2;
     private javax.swing.JTextField txtHienthiMa;
-    private javax.swing.JTextField txtHienthiMa1;
     private javax.swing.JTextField txtHienthiMa2;
     private javax.swing.JTextField txtHienthiSoluong;
-    private javax.swing.JTextField txtHienthiSoluong1;
     private javax.swing.JTextField txtHienthiSoluong2;
     private javax.swing.JTextField txtHienthiSoluong3;
     private javax.swing.JTextField txtHienthiSoluong4;
     private javax.swing.JTextField txtHienthiSoluong5;
     private javax.swing.JTextField txtHienthiSoluong6;
     private javax.swing.JTextField txtHienthiTen;
-    private javax.swing.JTextField txtHienthiTen1;
     private javax.swing.JTextField txtMaHĐ;
     private javax.swing.JTextField txtMaHĐ1;
     private javax.swing.JTextField txtNgayLap;
@@ -4993,8 +4519,5 @@ public class Giaodienchinh extends javax.swing.JFrame {
     private javax.swing.JTextField txtThanhtien1;
     private javax.swing.JTextField txtTimkiem;
     private javax.swing.JTextField txtTimkiem1;
-    private javax.swing.JTextField txtfullname1;
-    private javax.swing.JTextField txtfullname2;
-    private javax.swing.JTextField txtfullname3;
     // End of variables declaration//GEN-END:variables
 }
