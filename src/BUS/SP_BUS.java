@@ -4,6 +4,8 @@ import DAO.SP_DAO;
 import DTO.SP_DTO;
 import java.util.ArrayList;
 
+import javax.swing.table.TableModel;
+
 public class SP_BUS {
         SP_DAO SPDAO = new SP_DAO();
         public ArrayList<SP_DTO> getAllSP(){
@@ -14,9 +16,7 @@ public class SP_BUS {
             return SPDAO.getMaLoaiSP();
         }
 
-        public ArrayList<SP_DTO> getcmbMaLoaiSP(String MaSP){
-            return SPDAO.getcmbMaLoaiSP(MaSP);
-        }
+        
         
         public String addsanpham(SP_DTO sp) { 
             if (SPDAO.addSP(sp)) 
@@ -41,6 +41,11 @@ public class SP_BUS {
 
         public ArrayList<SP_DTO> searchSP(SP_DTO sp){
             return SPDAO.searchSP();
+        }
+
+        //xuất excel
+        public void exportExcel(TableModel model, String filename){
+            SPDAO.ExportExcel(model, filename);
         }
         
     }

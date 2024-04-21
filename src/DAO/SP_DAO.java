@@ -1,6 +1,9 @@
 package DAO;
 
 import DTO.SP_DTO;
+
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
 
@@ -77,35 +80,8 @@ public class SP_DAO {
         return arr;
     }
 
-    public ArrayList<SP_DTO> getcmbMaLoaiSP(String MaSP) {
-        ArrayList<SP_DTO> arr = new ArrayList<>();
-        try {
-            con = getConnection();
-            String sql = "SELECT * FROM SanPham WHERE MaSP = ?";
-            PreparedStatement stmt = con.prepareStatement(sql);
-            stmt.setString(1, MaSP);
-            ResultSet rs = stmt.executeQuery();
-            while (rs.next()) {
-                SP_DTO sp = new SP_DTO();
-                sp.setMaSP(rs.getString("MaSP"));
-                sp.setMaLoaiSP(rs.getString("MaLoaiSP"));
-                sp.setTenSP(rs.getString("TenSP"));
-                sp.setDonGia(rs.getFloat("DonGia"));
-                sp.setSoLuong(rs.getInt("SoLuong"));
-                sp.setHinhAnh(rs.getString("HinhAnh"));
-                sp.setNgaySX(rs.getString("NgaySX"));
-                sp.setNgayHH(rs.getString("NgayHH"));
-                sp.setNoiSX(rs.getString("NoiSX"));
-                sp.setIsDelete(rs.getInt("isDelete"));
-                arr.add(sp);
-            }
-        } catch (SQLException ex) {
-            System.out.println(ex);
-        } finally {
-            closeConnection();
-        }
-        return arr;
-    }
+    
+
     public boolean addSP(SP_DTO sp) {
         boolean result = false;
         try {
@@ -246,4 +222,23 @@ public class SP_DAO {
                 }
                 return "SP01" + String.format("%02d", 1);
         }
+
+    public void ExportExcel(javax.swing.table.TableModel model, String filename) {
+        try {
+            FileOutputStream excel = new FileOutputStream(filename);
+            for (int i = 0; i < model.getColumnCount(); i++) {
+                excel.write((model.getColumnName(i) + "\t").getBytes());
+            }
+            excel.write("\n".getBytes());
+            for (int i = 0; i < model.getRowCount(); i++) {
+                for (int j = 0; j < model.getColumnCount(); j++) {
+                    excel.write((model.getValueAt(i, j).toString() + "\t").getBytes());
+                }
+                excel.write("\n".getBytes());
+            }
+            excel.close();
+        } catch (IOException e) {
+            System.out.println(e);
+        }
+    }
 }
