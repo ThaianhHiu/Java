@@ -59,13 +59,60 @@ public class SP_DAO {
         return arr;
     }
 
+    public ArrayList<String> getMaLoaiSP() {
+        ArrayList<String> arr = new ArrayList<>();
+        try {
+            con = getConnection();
+            String sql = "SELECT MaLoaiSP FROM LoaiSP";
+            PreparedStatement stmt = con.prepareStatement(sql);
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                arr.add(rs.getString("MaLoaiSP"));
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        } finally {
+            closeConnection();
+        }
+        return arr;
+    }
+
+    public ArrayList<SP_DTO> getcmbMaLoaiSP(String MaSP) {
+        ArrayList<SP_DTO> arr = new ArrayList<>();
+        try {
+            con = getConnection();
+            String sql = "SELECT * FROM SanPham WHERE MaSP = ?";
+            PreparedStatement stmt = con.prepareStatement(sql);
+            stmt.setString(1, MaSP);
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                SP_DTO sp = new SP_DTO();
+                sp.setMaSP(rs.getString("MaSP"));
+                sp.setMaLoaiSP(rs.getString("MaLoaiSP"));
+                sp.setTenSP(rs.getString("TenSP"));
+                sp.setDonGia(rs.getFloat("DonGia"));
+                sp.setSoLuong(rs.getInt("SoLuong"));
+                sp.setHinhAnh(rs.getString("HinhAnh"));
+                sp.setNgaySX(rs.getString("NgaySX"));
+                sp.setNgayHH(rs.getString("NgayHH"));
+                sp.setNoiSX(rs.getString("NoiSX"));
+                sp.setIsDelete(rs.getInt("isDelete"));
+                arr.add(sp);
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        } finally {
+            closeConnection();
+        }
+        return arr;
+    }
     public boolean addSP(SP_DTO sp) {
         boolean result = false;
         try {
             con = getConnection();
             String sql = "INSERT INTO SanPham VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             PreparedStatement stmt = con.prepareStatement(sql);
-            stmt.setString(1, sp.getMaSP());
+            stmt.setString(1, taoMaSVTuDong());
             stmt.setString(2, sp.getMaLoaiSP());
             stmt.setString(3, sp.getTenSP());
             stmt.setFloat(4, sp.getDonGia());
@@ -85,5 +132,118 @@ public class SP_DAO {
         }
         return result;
     }
-    
+
+    public boolean updateSP(SP_DTO sp) {
+        boolean result = false;
+        try {
+            con = getConnection();
+            String sql = "UPDATE SanPham SET MaLoaiSP = ?, TenSP = ?, DonGia = ?, SoLuong = ?, HinhAnh = ?, NgaySX = ?, NgayHH = ?, NoiSX = ?, isDelete = ? WHERE MaSP = ?";
+            PreparedStatement stmt = con.prepareStatement(sql);
+            stmt.setString(1, sp.getMaLoaiSP());
+            stmt.setString(2, sp.getTenSP());
+            stmt.setFloat(3, sp.getDonGia());
+            stmt.setInt(4, sp.getSoLuong());
+            stmt.setString(5, sp.getHinhAnh());
+            stmt.setString(6, sp.getNgaySX());
+            stmt.setString(7, sp.getNgayHH());
+            stmt.setString(8, sp.getNoiSX());
+            stmt.setInt(9, sp.getIsDelete());
+            stmt.setString(10, sp.getMaSP());
+            int rowsAffected = stmt.executeUpdate();
+            if (rowsAffected >= 1)
+                result = true;
+                } catch (SQLException ex) {
+                    System.out.println(ex);
+                } finally {
+                    closeConnection();
+                }
+                return result;
+            }
+
+    // public boolean deleteSP(SP_DTO sp) {
+    //     boolean result = false;
+    //     try {
+    //         con = getConnection();
+    //         String sql = "DELETE FROM SanPham WHERE MaSP = ?";
+    //         PreparedStatement stmt = con.prepareStatement(sql);
+    //         stmt.setString(1, sp.getMaSP());
+    //         int rowsAffected = stmt.executeUpdate();
+    //         if (rowsAffected >= 1)
+    //             result = true;
+    //     } catch (SQLException ex) {
+    //         System.out.println(ex);
+    //     } finally {
+    //         closeConnection();
+    //     }
+    //     return result;
+    // }
+
+    public boolean deleteSP(SP_DTO sp){
+        boolean result = false;
+        try {
+            con = getConnection();
+            String sql = "UPDATE SanPham SET isDelete = 0 WHERE MaSP = ?";
+            PreparedStatement stmt = con.prepareStatement(sql);
+            stmt.setString(1, sp.getMaSP());
+            int rowsAffected = stmt.executeUpdate();
+            if (rowsAffected >= 1)
+                result = true;
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        } finally {
+            closeConnection();
+        }
+        return result;
+    }
+
+    public ArrayList<SP_DTO> searchSP(){
+        ArrayList<SP_DTO> arr = new ArrayList<>();
+        try {
+            con = getConnection();
+            String sql = "SELECT * FROM SanPham WHERE isDelete = 1";
+            PreparedStatement stmt = con.prepareStatement(sql);
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                SP_DTO sp = new SP_DTO();
+                sp.setMaSP(rs.getString("MaSP"));
+                sp.setMaLoaiSP(rs.getString("MaLoaiSP"));
+                sp.setTenSP(rs.getString("TenSP"));
+                sp.setDonGia(rs.getFloat("DonGia"));
+                sp.setSoLuong(rs.getInt("SoLuong"));
+                sp.setHinhAnh(rs.getString("HinhAnh"));
+                sp.setNgaySX(rs.getString("NgaySX"));
+                sp.setNgayHH(rs.getString("NgayHH"));
+                sp.setNoiSX(rs.getString("NoiSX"));
+                sp.setIsDelete(rs.getInt("isDelete"));
+                arr.add(sp);
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        } finally {
+            closeConnection();
+        }
+        return arr;
+    }
+
+    private String taoMaSVTuDong() {  
+        String sql = "Select MaSP from SanPham";
+                try {
+                    con = getConnection();
+                    Statement st = con.createStatement();
+                    ResultSet rs = st.executeQuery(sql);
+                    int max = 0;
+                    while (rs.next()) {
+                        String maSV = rs.getString(1);
+                        int num = Integer.parseInt(maSV.trim().substring(2));
+                        if (num > max) {
+                            max = num;
+                        }
+                    }
+                    max++;
+                    return "SP" + String.format("%02d", max);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                return "SP01" + String.format("%02d", 1);
+        }
 }

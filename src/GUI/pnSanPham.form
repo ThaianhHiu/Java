@@ -16,7 +16,7 @@
     <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
     <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
-    <AuxValue name="designerSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,2,-13,0,0,3,-111"/>
+    <AuxValue name="designerSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,3,72,0,0,4,18"/>
   </AuxValues>
 
   <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>
@@ -64,7 +64,7 @@
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.DesignFlowLayout"/>
               <SubComponents>
-                <Component class="javax.swing.JButton" name="jButton14">
+                <Component class="javax.swing.JButton" name="btnThem">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI" size="12" style="1"/>
@@ -74,8 +74,11 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="Th&#xea;m "/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnThemActionPerformed"/>
+                  </Events>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton15">
+                <Component class="javax.swing.JButton" name="btnXoa">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI" size="12" style="1"/>
@@ -86,10 +89,10 @@
                     <Property name="text" type="java.lang.String" value="X&#xf3;a"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton15ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnXoaActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton26">
+                <Component class="javax.swing.JButton" name="btnSua">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI" size="12" style="1"/>
@@ -100,10 +103,10 @@
                     <Property name="text" type="java.lang.String" value="S&#x1eed;a"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton26ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSuaActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton27">
+                <Component class="javax.swing.JButton" name="btnXuatEx">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI" size="12" style="1"/>
@@ -114,10 +117,10 @@
                     <Property name="text" type="java.lang.String" value="Xu&#x1ea5;t Excel"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton27ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnXuatExActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton28">
+                <Component class="javax.swing.JButton" name="btnNhapEx">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI" size="12" style="1"/>
@@ -128,7 +131,7 @@
                     <Property name="text" type="java.lang.String" value="Nh&#x1ead;p Excel "/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton28ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnNhapExActionPerformed"/>
                   </Events>
                 </Component>
               </SubComponents>
@@ -168,11 +171,11 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jComboBox3" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="cmbLoaiSP" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel8" alignment="0" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jTextField17" pref="242" max="32767" attributes="0"/>
+                              <Component id="txtTimkiem" pref="242" max="32767" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -184,11 +187,11 @@
                                   <Group type="102" alignment="1" attributes="0">
                                       <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="32767" attributes="0"/>
-                                      <Component id="jComboBox3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="cmbLoaiSP" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jTextField17" max="32767" attributes="0"/>
+                                      <Component id="txtTimkiem" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
@@ -197,16 +200,14 @@
                     </DimensionLayout>
                   </Layout>
                   <SubComponents>
-                    <Component class="javax.swing.JComboBox" name="jComboBox3">
+                    <Component class="javax.swing.JComboBox" name="cmbLoaiSP">
                       <Properties>
                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="ff" green="ff" red="cc" type="rgb"/>
                         </Property>
                         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                          <StringArray count="3">
+                          <StringArray count="1">
                             <StringItem index="0" value="T&#x1ea5;t c&#x1ea3;"/>
-                            <StringItem index="1" value="B&#xe1;nh ng&#x1ecd;t "/>
-                            <StringItem index="2" value="B&#xe1;nh xe"/>
                           </StringArray>
                         </Property>
                       </Properties>
@@ -214,7 +215,7 @@
                         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                       </AuxValues>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="jTextField17">
+                    <Component class="javax.swing.JTextField" name="txtTimkiem">
                       <Properties>
                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="ff" green="ff" red="99" type="rgb"/>
@@ -397,7 +398,24 @@
                     </Component>
                   </SubComponents>
                 </Container>
-                <Component class="javax.swing.JButton" name="jButton29">
+                <Component class="javax.swing.JButton" name="btnTim">
+                  <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="ff" red="cc" type="rgb"/>
+                    </Property>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="12" style="1"/>
+                    </Property>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/image/search.png"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="T&#xec;m"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnTimActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JButton" name="btnLammoi">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="99" green="ff" red="99" type="rgb"/>
@@ -411,7 +429,7 @@
                     <Property name="text" type="java.lang.String" value="L&#xe0;m m&#x1edb;i"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton29ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLammoiActionPerformed"/>
                   </Events>
                 </Component>
               </SubComponents>
@@ -438,35 +456,7 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.DesignFlowLayout"/>
           <SubComponents>
-            <Container class="javax.swing.JPanel" name="pnHinhanh1">
-
-              <Layout>
-                <DimensionLayout dim="0">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <EmptySpace min="0" pref="168" max="32767" attributes="0"/>
-                  </Group>
-                </DimensionLayout>
-                <DimensionLayout dim="1">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <EmptySpace min="0" pref="134" max="32767" attributes="0"/>
-                  </Group>
-                </DimensionLayout>
-              </Layout>
-            </Container>
-            <Component class="javax.swing.JTextField" name="txtHienthiLoai1">
-              <Properties>
-                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                  <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                    <TitledBorder title="Lo&#x1ea1;i SP"/>
-                  </Border>
-                </Property>
-                <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[80, 60]"/>
-                </Property>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtHienthiLoai1ActionPerformed"/>
-              </Events>
+            <Component class="javax.swing.JLabel" name="anh">
             </Component>
             <Component class="javax.swing.JTextField" name="txtHienthiMa1">
               <Properties>
@@ -480,17 +470,20 @@
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="txtHienthiGia1">
+            <Component class="javax.swing.JTextField" name="txtHienthiLoai1">
               <Properties>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                    <TitledBorder title="&#x110;&#x1a1;n gi&#xe1;"/>
+                    <TitledBorder title="Lo&#x1ea1;i SP"/>
                   </Border>
                 </Property>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[80, 60]"/>
+                  <Dimension value="[90, 60]"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtHienthiLoai1ActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="txtHienthiTen1">
               <Properties>
@@ -500,7 +493,19 @@
                   </Border>
                 </Property>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[80, 60]"/>
+                  <Dimension value="[160, 60]"/>
+                </Property>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtHienthiGia1">
+              <Properties>
+                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                  <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+                    <TitledBorder title="&#x110;&#x1a1;n gi&#xe1;"/>
+                  </Border>
+                </Property>
+                <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                  <Dimension value="[120, 60]"/>
                 </Property>
               </Properties>
             </Component>
@@ -512,7 +517,58 @@
                   </Border>
                 </Property>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[80, 60]"/>
+                  <Dimension value="[120, 60]"/>
+                </Property>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtHienthiHinhAnh">
+              <Properties>
+                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                  <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+                    <TitledBorder title="H&#xec;nh &#x1ea3;nh"/>
+                  </Border>
+                </Property>
+                <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                  <Dimension value="[120, 60]"/>
+                </Property>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtHienthiNoiSX">
+              <Properties>
+                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                  <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+                    <TitledBorder title="N&#x1a1;i SX"/>
+                  </Border>
+                </Property>
+                <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                  <Dimension value="[160, 60]"/>
+                </Property>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtHienthiNoiSXActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtHienthiNgaySX">
+              <Properties>
+                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                  <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+                    <TitledBorder title="Ng&#xe0;y SX"/>
+                  </Border>
+                </Property>
+                <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                  <Dimension value="[130, 60]"/>
+                </Property>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtHienthiNgayHH">
+              <Properties>
+                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                  <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+                    <TitledBorder title="Ng&#xe0;y HH"/>
+                  </Border>
+                </Property>
+                <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                  <Dimension value="[130, 60]"/>
                 </Property>
               </Properties>
             </Component>
@@ -538,7 +594,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jScrollPane7" pref="901" max="32767" attributes="0"/>
+                      <Component id="jScrollPane7" pref="1030" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -548,7 +604,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jScrollPane7" min="-2" pref="471" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="47" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -578,7 +634,6 @@
                         <Column editable="false" title="Tr&#x1ea1;ng th&#xe1;i" type="java.lang.Object"/>
                       </Table>
                     </Property>
-                    <Property name="enabled" type="boolean" value="false"/>
                     <Property name="showGrid" type="boolean" value="true"/>
                     <Property name="surrendersFocusOnKeystroke" type="boolean" value="true"/>
                   </Properties>
