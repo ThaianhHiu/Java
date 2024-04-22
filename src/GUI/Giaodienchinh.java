@@ -181,23 +181,6 @@ public class Giaodienchinh extends javax.swing.JFrame {
         pnLsBanh1 = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
         tblLsSP1 = new javax.swing.JTable();
-        pnLoaiSP = new javax.swing.JPanel();
-        pnTop1 = new javax.swing.JPanel();
-        jPanel11 = new javax.swing.JPanel();
-        jButton7 = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
-        jButton10 = new javax.swing.JButton();
-        jButton11 = new javax.swing.JButton();
-        jButton12 = new javax.swing.JButton();
-        jPanel12 = new javax.swing.JPanel();
-        jPanel13 = new javax.swing.JPanel();
-        jComboBox2 = new javax.swing.JComboBox<>();
-        jTextField16 = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
-        jButton13 = new javax.swing.JButton();
-        pnCenter1 = new javax.swing.JPanel();
-        jScrollPane6 = new javax.swing.JScrollPane();
-        tblSP1 = new javax.swing.JTable();
         pnHoadon = new javax.swing.JPanel();
         pnTop = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
@@ -1565,255 +1548,6 @@ public class Giaodienchinh extends javax.swing.JFrame {
         pnNhaphang.add(pnLsSP1, java.awt.BorderLayout.CENTER);
 
         pnCards.add(pnNhaphang, "CardNhaphang");
-
-        pnLoaiSP.setLayout(new java.awt.BorderLayout());
-
-        pnTop1.setBackground(new java.awt.Color(204, 255, 255));
-        pnTop1.setPreferredSize(new java.awt.Dimension(1361, 150));
-        pnTop1.setLayout(new java.awt.BorderLayout());
-
-        jPanel11.setBackground(new java.awt.Color(153, 255, 255));
-        jPanel11.setPreferredSize(new java.awt.Dimension(1085, 50));
-
-        jButton7.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/add1.png"))); // NOI18N
-        jButton7.setText("Thêm ");
-        jPanel11.add(jButton7);
-
-        jButton9.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButton9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/del.png"))); // NOI18N
-        jButton9.setText("Xóa");
-        jButton9.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton9ActionPerformed(evt);
-            }
-        });
-        jPanel11.add(jButton9);
-
-        jButton10.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButton10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/sua.png"))); // NOI18N
-        jButton10.setText("Sửa");
-        jButton10.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton10ActionPerformed(evt);
-            }
-        });
-        jPanel11.add(jButton10);
-
-        jButton11.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButton11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/xls.png"))); // NOI18N
-        jButton11.setText("Xuất Excel");
-        jButton11.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton11ActionPerformed(evt);
-            }
-        });
-        jPanel11.add(jButton11);
-
-        jButton12.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButton12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/excel.png"))); // NOI18N
-        jButton12.setText("Nhập Excel ");
-        jButton12.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton12ActionPerformed(evt);
-            }
-        });
-        jPanel11.add(jButton12);
-
-        pnTop1.add(jPanel11, java.awt.BorderLayout.PAGE_START);
-
-        jPanel12.setBackground(new java.awt.Color(153, 255, 255));
-        jPanel12.setPreferredSize(new java.awt.Dimension(1085, 150));
-
-        jPanel13.setBackground(new java.awt.Color(204, 255, 255));
-        jPanel13.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
-        jComboBox2.setBackground(new java.awt.Color(204, 255, 255));
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tất cả", "Bánh ngọt ", "Bánh xe" }));
-
-        jTextField16.setBackground(new java.awt.Color(153, 255, 255));
-
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 51, 102));
-        jLabel7.setText("Tìm kiếm");
-
-        javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
-        jPanel13.setLayout(jPanel13Layout);
-        jPanel13Layout.setHorizontalGroup(
-            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel13Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField16, javax.swing.GroupLayout.DEFAULT_SIZE, 242, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        jPanel13Layout.setVerticalGroup(
-            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel13Layout.createSequentialGroup()
-                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel13Layout.createSequentialGroup()
-                        .addComponent(jLabel7)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel13Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jTextField16)))
-                .addContainerGap())
-        );
-
-        jPanel12.add(jPanel13);
-
-        jButton13.setBackground(new java.awt.Color(153, 255, 153));
-        jButton13.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButton13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/refresh.png"))); // NOI18N
-        jButton13.setText("Làm mới");
-        jButton13.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton13ActionPerformed(evt);
-            }
-        });
-        jPanel12.add(jButton13);
-
-        pnTop1.add(jPanel12, java.awt.BorderLayout.CENTER);
-
-        pnLoaiSP.add(pnTop1, java.awt.BorderLayout.PAGE_START);
-
-        pnCenter1.setBackground(new java.awt.Color(255, 204, 255));
-        pnCenter1.setPreferredSize(new java.awt.Dimension(161, 450));
-
-        tblSP1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "STT", "Mã Loại", "Tên Loại", "Mô tả"
-            }
-        ));
-        tblSP1.setShowGrid(true);
-        tblSP1.setSurrendersFocusOnKeystroke(true);
-        jScrollPane6.setViewportView(tblSP1);
-
-        javax.swing.GroupLayout pnCenter1Layout = new javax.swing.GroupLayout(pnCenter1);
-        pnCenter1.setLayout(pnCenter1Layout);
-        pnCenter1Layout.setHorizontalGroup(
-            pnCenter1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnCenter1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 1349, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        pnCenter1Layout.setVerticalGroup(
-            pnCenter1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnCenter1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 549, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(152, Short.MAX_VALUE))
-        );
-
-        pnLoaiSP.add(pnCenter1, java.awt.BorderLayout.CENTER);
-
-        pnCards.add(pnLoaiSP, "CardLoaiSP");
 
         pnHoadon.setLayout(new java.awt.BorderLayout());
 
@@ -3853,6 +3587,7 @@ public class Giaodienchinh extends javax.swing.JFrame {
 
     private void btnLoaiSPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoaiSPActionPerformed
         // TODO add your handling code here:
+        pnCards.add(new pnLoaiSP(),"CardLoaiSP");
         cardlayout.show(pnCards, "CardLoaiSP");
     }//GEN-LAST:event_btnLoaiSPActionPerformed
 
@@ -4022,26 +3757,6 @@ public class Giaodienchinh extends javax.swing.JFrame {
     private void jTextField15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField15ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField15ActionPerformed
-
-    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton9ActionPerformed
-
-    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton10ActionPerformed
-
-    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton11ActionPerformed
-
-    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton12ActionPerformed
-
-    private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton13ActionPerformed
 
     private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
         // TODO add your handling code here:
@@ -4262,10 +3977,6 @@ public class Giaodienchinh extends javax.swing.JFrame {
     private javax.swing.JButton btnTimkiem1;
     private javax.swing.JComboBox<String> cmbKM;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton11;
-    private javax.swing.JButton jButton12;
-    private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton16;
     private javax.swing.JButton jButton17;
     private javax.swing.JButton jButton18;
@@ -4316,11 +4027,8 @@ public class Giaodienchinh extends javax.swing.JFrame {
     private javax.swing.JButton jButton62;
     private javax.swing.JButton jButton63;
     private javax.swing.JButton jButton64;
-    private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
     private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox4;
     private javax.swing.JComboBox<String> jComboBox5;
     private javax.swing.JComboBox<String> jComboBox6;
@@ -4341,12 +4049,8 @@ public class Giaodienchinh extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
-    private javax.swing.JPanel jPanel11;
-    private javax.swing.JPanel jPanel12;
-    private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel19;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel20;
@@ -4386,7 +4090,6 @@ public class Giaodienchinh extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
-    private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JTable jTable2;
@@ -4398,7 +4101,6 @@ public class Giaodienchinh extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField13;
     private javax.swing.JTextField jTextField14;
     private javax.swing.JTextField jTextField15;
-    private javax.swing.JTextField jTextField16;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField22;
     private javax.swing.JTextField jTextField23;
@@ -4435,7 +4137,6 @@ public class Giaodienchinh extends javax.swing.JFrame {
     private javax.swing.JPanel pnBottom2;
     private javax.swing.JPanel pnCards;
     private javax.swing.JPanel pnCenter;
-    private javax.swing.JPanel pnCenter1;
     private javax.swing.JPanel pnCenter3;
     private javax.swing.JPanel pnCenter4;
     private javax.swing.JPanel pnCenter5;
@@ -4449,7 +4150,6 @@ public class Giaodienchinh extends javax.swing.JFrame {
     private javax.swing.JPanel pnInHĐ1;
     private javax.swing.JPanel pnKM;
     private javax.swing.JPanel pnKhachHang;
-    private javax.swing.JPanel pnLoaiSP;
     private javax.swing.JPanel pnLogin;
     private javax.swing.JPanel pnLsBanh;
     private javax.swing.JPanel pnLsBanh1;
@@ -4473,7 +4173,6 @@ public class Giaodienchinh extends javax.swing.JFrame {
     private javax.swing.JPanel pnTimkiem;
     private javax.swing.JPanel pnTimkiem1;
     private javax.swing.JPanel pnTop;
-    private javax.swing.JPanel pnTop1;
     private javax.swing.JPanel pnTop3;
     private javax.swing.JPanel pnTop4;
     private javax.swing.JPanel pnTop5;
@@ -4485,7 +4184,6 @@ public class Giaodienchinh extends javax.swing.JFrame {
     private javax.swing.JTable tblLsSP;
     private javax.swing.JTable tblLsSP1;
     private javax.swing.JTable tblSP;
-    private javax.swing.JTable tblSP1;
     private javax.swing.JTable tblSP3;
     private javax.swing.JTable tblSP4;
     private javax.swing.JTable tblSP5;

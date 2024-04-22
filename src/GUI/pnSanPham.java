@@ -7,7 +7,10 @@ package GUI;
 import BUS.SP_BUS;
 import DTO.SP_DTO;
 import javax.swing.*;
-
+import org.apache.poi.ss.usermodel.*;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
@@ -66,18 +69,18 @@ public class pnSanPham extends javax.swing.JPanel {
         ArrayList<SP_DTO> arr = new ArrayList<SP_DTO>();
         arr = spbus.getAllSP();
         for(int i = 0; i < arr.size(); i++){
-                SP_DTO em = arr.get(i);
-                String maSP = em.getMaSP();
-                String maLoai = em.getMaLoaiSP();
-                String tenSP = em.getTenSP();
-                float donGia = em.getDonGia();
-                int soLuong = em.getSoLuong();
-                String hinhAnh = em.getHinhAnh();
-                String noiSX = em.getNoiSX();
-                String ngaySX = em.getNgaySX();
-                String ngayHetHan = em.getNgayHH();
-                int isDelete = em.getIsDelete();
-                Object[] row = {maSP, maLoai, tenSP, donGia, soLuong, hinhAnh, noiSX, ngaySX, ngayHetHan, isDelete };
+                SP_DTO sp = arr.get(i);
+                String maSP = sp.getMaSP();
+                String maLoai = sp.getMaLoaiSP();
+                String tenSP = sp.getTenSP();
+                float donGia = sp.getDonGia();
+                int soLuong = sp.getSoLuong();
+                String hinhAnh = sp.getHinhAnh();
+                String noiSX = sp.getNoiSX();
+                String ngaySX = sp.getNgaySX();
+                String ngayHetHan = sp.getNgayHH();
+                int isDelete = sp.getIsDelete();
+                Object[] row = { maSP, maLoai, tenSP, donGia, soLuong, hinhAnh, noiSX, ngaySX, ngayHetHan, isDelete };
                 dtm.addRow(row);
         }
         SP_tblsp.setModel(dtm);
@@ -209,35 +212,35 @@ public class pnSanPham extends javax.swing.JPanel {
         arr = spbus.getAllSP();
         if (txtTimkiem.getText().trim().equals("") && cmbLoaiSP.getSelectedIndex() == 0) {
             for(int i = 0; i < arr.size(); i++){
-                SP_DTO em = arr.get(i);
-                String maSP = em.getMaSP();
-                String maLoai = em.getMaLoaiSP();
-                String tenSP = em.getTenSP();
-                float donGia = em.getDonGia();
-                int soLuong = em.getSoLuong();
-                String hinhAnh = em.getHinhAnh();
-                String noiSX = em.getNoiSX();
-                String ngaySX = em.getNgaySX();
-                String ngayHetHan = em.getNgayHH();
-                int isDelete = em.getIsDelete();
+                SP_DTO sp = arr.get(i);
+                String maSP = sp.getMaSP();
+                String maLoai = sp.getMaLoaiSP();
+                String tenSP = sp.getTenSP();
+                float donGia = sp.getDonGia();
+                int soLuong = sp.getSoLuong();
+                String hinhAnh = sp.getHinhAnh();
+                String noiSX = sp.getNoiSX();
+                String ngaySX = sp.getNgaySX();
+                String ngayHetHan = sp.getNgayHH();
+                int isDelete = sp.getIsDelete();
                 Object[] row = {maSP, maLoai, tenSP, donGia, soLuong, hinhAnh, noiSX, ngaySX, ngayHetHan, isDelete };
                 dtm.addRow(row);
             }
         }
         else if (txtTimkiem.getText().trim().equals("") && cmbLoaiSP.getSelectedIndex() > 0) {
             for(int i = 0; i < arr.size(); i++){
-                SP_DTO em = arr.get(i);
-                if (em.getMaLoaiSP().equals(cmbLoaiSP.getSelectedItem().toString())) {
-                    String maSP = em.getMaSP();
-                    String maLoai = em.getMaLoaiSP();
-                    String tenSP = em.getTenSP();
-                    float donGia = em.getDonGia();
-                    int soLuong = em.getSoLuong();
-                    String hinhAnh = em.getHinhAnh();
-                    String noiSX = em.getNoiSX();
-                    String ngaySX = em.getNgaySX();
-                    String ngayHetHan = em.getNgayHH();
-                    int isDelete = em.getIsDelete();
+                SP_DTO sp = arr.get(i);
+                if (sp.getMaLoaiSP().equals(cmbLoaiSP.getSelectedItem().toString())) {
+                    String maSP = sp.getMaSP();
+                    String maLoai = sp.getMaLoaiSP();
+                    String tenSP = sp.getTenSP();
+                    float donGia = sp.getDonGia();
+                    int soLuong = sp.getSoLuong();
+                    String hinhAnh = sp.getHinhAnh();
+                    String noiSX = sp.getNoiSX();
+                    String ngaySX = sp.getNgaySX();
+                    String ngayHetHan = sp.getNgayHH();
+                    int isDelete = sp.getIsDelete();
                     Object[] row = {maSP, maLoai, tenSP, donGia, soLuong, hinhAnh, noiSX, ngaySX, ngayHetHan, isDelete };
                     dtm.addRow(row);
                 }
@@ -245,18 +248,18 @@ public class pnSanPham extends javax.swing.JPanel {
         }
         else if (!txtTimkiem.getText().trim().equals("") && cmbLoaiSP.getSelectedIndex() == 0) {
             for(int i = 0; i < arr.size(); i++){
-                SP_DTO em = arr.get(i);
-                if (em.getTenSP().toLowerCase().contains(txtTimkiem.getText().toLowerCase())) {
-                    String maSP = em.getMaSP();
-                    String maLoai = em.getMaLoaiSP();
-                    String tenSP = em.getTenSP();
-                    float donGia = em.getDonGia();
-                    int soLuong = em.getSoLuong();
-                    String hinhAnh = em.getHinhAnh();
-                    String noiSX = em.getNoiSX();
-                    String ngaySX = em.getNgaySX();
-                    String ngayHetHan = em.getNgayHH();
-                    int isDelete = em.getIsDelete();
+                SP_DTO sp = arr.get(i);
+                if (sp.getTenSP().toLowerCase().contains(txtTimkiem.getText().toLowerCase())) {
+                    String maSP = sp.getMaSP();
+                    String maLoai = sp.getMaLoaiSP();
+                    String tenSP = sp.getTenSP();
+                    float donGia = sp.getDonGia();
+                    int soLuong = sp.getSoLuong();
+                    String hinhAnh = sp.getHinhAnh();
+                    String noiSX = sp.getNoiSX();
+                    String ngaySX = sp.getNgaySX();
+                    String ngayHetHan = sp.getNgayHH();
+                    int isDelete = sp.getIsDelete();
                     Object[] row = {maSP, maLoai, tenSP, donGia, soLuong, hinhAnh, noiSX, ngaySX, ngayHetHan, isDelete };
                     dtm.addRow(row);
                 }
@@ -264,18 +267,18 @@ public class pnSanPham extends javax.swing.JPanel {
         }
         else if (!txtTimkiem.getText().trim().equals("") && cmbLoaiSP.getSelectedIndex() > 0) {
             for(int i = 0; i < arr.size(); i++){
-                SP_DTO em = arr.get(i);
-                if (em.getTenSP().toLowerCase().contains(txtTimkiem.getText().toLowerCase()) && em.getMaLoaiSP().equals(cmbLoaiSP.getSelectedItem().toString())) {
-                    String maSP = em.getMaSP();
-                    String maLoai = em.getMaLoaiSP();
-                    String tenSP = em.getTenSP();
-                    float donGia = em.getDonGia();
-                    int soLuong = em.getSoLuong();
-                    String hinhAnh = em.getHinhAnh();
-                    String noiSX = em.getNoiSX();
-                    String ngaySX = em.getNgaySX();
-                    String ngayHetHan = em.getNgayHH();
-                    int isDelete = em.getIsDelete();
+                SP_DTO sp = arr.get(i);
+                if (sp.getTenSP().toLowerCase().contains(txtTimkiem.getText().toLowerCase()) && sp.getMaLoaiSP().equals(cmbLoaiSP.getSelectedItem().toString())) {
+                    String maSP = sp.getMaSP();
+                    String maLoai = sp.getMaLoaiSP();
+                    String tenSP = sp.getTenSP();
+                    float donGia = sp.getDonGia();
+                    int soLuong = sp.getSoLuong();
+                    String hinhAnh = sp.getHinhAnh();
+                    String noiSX = sp.getNoiSX();
+                    String ngaySX = sp.getNgaySX();
+                    String ngayHetHan = sp.getNgayHH();
+                    int isDelete = sp.getIsDelete();
                     Object[] row = {maSP, maLoai, tenSP, donGia, soLuong, hinhAnh, noiSX, ngaySX, ngayHetHan, isDelete };
                     dtm.addRow(row);
                 }
@@ -323,19 +326,112 @@ public class pnSanPham extends javax.swing.JPanel {
         SP_tblsp.setModel(dtm);
     }
     
-    //xuất bảng tblsp ra file excel , cho phép chọn đường dẫn lưu file
+    // tôi muốn xuất ra bảng excel , cho phép chọn nơi lưu file và tên file , sau đó xuất ra file excel với các thông tin trong bảng hiện tại
     private void xuatExcel(){
-        JFileChooser fileChooser = new JFileChooser();
-        fileChooser.setDialogTitle("Specify a file to save");
-        int userSelection = fileChooser.showSaveDialog(this);
-        if (userSelection == JFileChooser.APPROVE_OPTION) {
-            String path = fileChooser.getSelectedFile().getAbsolutePath();
-            spbus.exportExcel(SP_tblsp.getModel(), path);
+        try {
+            Workbook workbook = new XSSFWorkbook();
+            Sheet sheet = workbook.createSheet("Product");
+            DefaultTableModel dtm = (DefaultTableModel) SP_tblsp.getModel();
+            Row row = sheet.createRow(0);
+            for (int i = 0; i < dtm.getColumnCount(); i++) {
+                row.createCell(i).setCellValue(dtm.getColumnName(i));
+            }
+            for (int i = 0; i < dtm.getRowCount(); i++) {
+                row = sheet.createRow(i + 1);
+                for (int j = 0; j < dtm.getColumnCount(); j++) {
+                    row.createCell(j).setCellValue(dtm.getValueAt(i, j).toString());
+                }
+            }
+            JFileChooser fileChooser = new JFileChooser();
+            int userSelection = fileChooser.showSaveDialog(this);
+            if (userSelection == JFileChooser.APPROVE_OPTION) {
+                String path = fileChooser.getSelectedFile().getAbsolutePath();
+                if (!path.endsWith(".xlsx")) {
+                    path += ".xlsx";
+                }
+                FileOutputStream fileOut = new FileOutputStream(path);
+                workbook.write(fileOut);
+                fileOut.close();
+                JOptionPane.showMessageDialog(this, "Export successfully");
+            }
+        } catch (IOException ex) {
+            ex.printStackTrace();
         }
     }
-  
+
+    // tôi muốn nhập dữ liệu từ file excel , cho phép chọn file excel cần nhập , sau đó đọc file excel và lưu vào database
+    // private void nhapExcel(){
+    //     try {
+    //         JFileChooser fileChooser = new JFileChooser();
+    //         int userSelection = fileChooser.showOpenDialog(this);
+    //         if (userSelection == JFileChooser.APPROVE_OPTION) {
+    //             String path = fileChooser.getSelectedFile().getAbsolutePath();
+    //             Workbook workbook = new XSSFWorkbook(path);
+    //             Sheet sheet = workbook.getSheetAt(0);
+    //             for (int i = 1; i <= sheet.getLastRowNum(); i++) {
+    //                 Row row = sheet.getRow(i);
+    //                 SP_DTO sp = new SP_DTO();
+    //                 sp.setMaSP(row.getCell(0).getStringCellValue());
+    //                 sp.setMaLoaiSP(row.getCell(1).getStringCellValue());
+    //                 sp.setTenSP(row.getCell(2).getStringCellValue());
+    //                 sp.setDonGia((float) row.getCell(3).getNumericCellValue());
+    //                 sp.setSoLuong((int) row.getCell(4).getNumericCellValue());
+    //                 sp.setHinhAnh(row.getCell(5).getStringCellValue());
+    //                 sp.setNoiSX(row.getCell(6).getStringCellValue());
+    //                 sp.setNgaySX(row.getCell(7).getStringCellValue());
+    //                 sp.setNgayHH(row.getCell(8).getStringCellValue());
+    //                 sp.setIsDelete(1);
+    //                 spbus.addsanpham(sp);
+    //             }
+    //             loaddata();
+    //             reload();
+    //             JOptionPane.showMessageDialog(this, "Import successfully");
+    //         }
+    //     } catch (IOException ex) {
+    //         ex.printStackTrace();
+    //     }
+    // }
+
+    // tôi muốn nhập dữ liệu từ file excel , cho phép chọn file excel cần nhập , sau đó đọc file excel và lưu vào database , lưu ý nếu có sản phẩm đã tồn tại thì không thêm sản phẩm đó vào database
+    private void nhapExcel(){
+        try {
+            JFileChooser fileChooser = new JFileChooser();
+            int userSelection = fileChooser.showOpenDialog(this);
+            if (userSelection == JFileChooser.APPROVE_OPTION) {
+                String path = fileChooser.getSelectedFile().getAbsolutePath();
+                Workbook workbook = new XSSFWorkbook(path);
+                Sheet sheet = workbook.getSheetAt(0);
+                for (int i = 1; i <= sheet.getLastRowNum(); i++) {
+                    Row row = sheet.getRow(i);
+                    SP_DTO sp = new SP_DTO();
+                    sp.setMaSP(row.getCell(0).getStringCellValue());
+                    sp.setMaLoaiSP(row.getCell(1).getStringCellValue());
+                    sp.setTenSP(row.getCell(2).getStringCellValue());
+                    sp.setDonGia((float) row.getCell(3).getNumericCellValue());
+                    sp.setSoLuong((int) row.getCell(4).getNumericCellValue());
+                    sp.setHinhAnh(row.getCell(5).getStringCellValue());
+                    sp.setNoiSX(row.getCell(6).getStringCellValue());
+                    sp.setNgaySX(row.getCell(7).getStringCellValue());
+                    sp.setNgayHH(row.getCell(8).getStringCellValue());
+                    sp.setIsDelete(1);
+                    if (spbus.checkMaSP(sp.getMaSP()).equals("Mã sản phẩm đã tồn tại")) {
+                        JOptionPane.showMessageDialog(this, "Product with ID " + sp.getMaSP() + " already exists");
+                    }
+                    else {
+                        spbus.addsanpham(sp);
+                }
+            }
+                loaddata();
+                reload();
+                JOptionPane.showMessageDialog(this, "Import successfully");
+            }
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
 
     
+
 
  /**
      * This method is called from within the constructor to initialize the form.
@@ -801,6 +897,7 @@ public class pnSanPham extends javax.swing.JPanel {
 
     private void btnNhapExActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNhapExActionPerformed
         // TODO add your handling code here:
+        nhapExcel();
     }//GEN-LAST:event_btnNhapExActionPerformed
 
     private void txtSoluong1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSoluong1ActionPerformed

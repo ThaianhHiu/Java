@@ -43,9 +43,10 @@ public class SP_BUS {
             return SPDAO.searchSP();
         }
 
-        //xuất excel
-        public void exportExcel(TableModel model, String filename){
-            SPDAO.ExportExcel(model, filename);
+        public String checkMaSP(String maSP){
+            if(SPDAO.checkMaSP(maSP))
+                return "Mã sản phẩm đã tồn tại";
+            else
+                return "Mã sản phẩm hợp lệ";
         }
-        
     }

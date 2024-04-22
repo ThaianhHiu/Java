@@ -6,6 +6,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
+import org.apache.poi.hssf.usermodel.*;
+import org.apache.poi.ss.usermodel.*;
 
 public class SP_DAO {
     private Connection con;
@@ -223,22 +225,53 @@ public class SP_DAO {
                 return "SP01" + String.format("%02d", 1);
         }
 
-    public void ExportExcel(javax.swing.table.TableModel model, String filename) {
-        try {
-            FileOutputStream excel = new FileOutputStream(filename);
-            for (int i = 0; i < model.getColumnCount(); i++) {
-                excel.write((model.getColumnName(i) + "\t").getBytes());
-            }
-            excel.write("\n".getBytes());
-            for (int i = 0; i < model.getRowCount(); i++) {
-                for (int j = 0; j < model.getColumnCount(); j++) {
-                    excel.write((model.getValueAt(i, j).toString() + "\t").getBytes());
+        // public void ExportExcel(javax.swing.table.TableModel model, String filename) {
+        //     try {
+        //         HSSFWorkbook workbook = new HSSFWorkbook();
+        //         HSSFSheet sheet = workbook.createSheet("Data");
+        
+        //         // Create header row
+        //         HSSFRow headerRow = sheet.createRow(0);
+        //         for (int i = 0; i < model.getColumnCount(); i++) {
+        //             HSSFCell cell = headerRow.createCell(i);
+        //             cell.setCellValue(model.getColumnName(i));
+        //         }
+        
+        //         // Fill data rows
+        //         for (int i = 0; i < model.getRowCount(); i++) {
+        //             HSSFRow dataRow = sheet.createRow(i + 1);
+        //             for (int j = 0; j < model.getColumnCount(); j++) {
+        //                 HSSFCell cell = dataRow.createCell(j);
+        //                 cell.setCellValue(model.getValueAt(i, j).toString());
+        //             }
+        //         }
+        
+        //         // Write the workbook content to a file
+        //         FileOutputStream excel = new FileOutputStream(filename);
+        //         workbook.write(excel);
+        //         excel.close();
+        //     } catch (IOException e) {
+        //         System.out.println(e);
+        //     }
+        // }
+
+        // kiểm tra mã sản phẩm đã tồn tại chưa
+        public boolean checkMaSP(String maSP) {
+            try {
+                con = getConnection();
+                String sql = "SELECT * FROM SanPham WHERE MaSP = ?";
+                PreparedStatement stmt = con.prepareStatement(sql);
+                stmt.setString(1, maSP);
+                ResultSet rs = stmt.executeQuery();
+                if (rs.next()) {
+                    return true;
                 }
-                excel.write("\n".getBytes());
+            } catch (SQLException ex) {
+                System.out.println(ex);
+            } finally {
+                closeConnection();
             }
-            excel.close();
-        } catch (IOException e) {
-            System.out.println(e);
+            return false;
         }
-    }
+
 }
