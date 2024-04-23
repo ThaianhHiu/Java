@@ -6,8 +6,15 @@ package GUI;
 
 import BUS.LoaiSP_BUS;
 import DTO.LoaiSP_DTO;
+
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
+import org.apache.poi.ss.usermodel.*;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 
 /**
@@ -25,6 +32,7 @@ public class pnLoaiSP extends javax.swing.JPanel {
     public pnLoaiSP() {
         initComponents();
         loadLoaiSP();
+        txtMaLoai.setEnabled(false);
     }
 
     private void loadLoaiSP() {
@@ -34,11 +42,148 @@ public class pnLoaiSP extends javax.swing.JPanel {
         for (int i = 0; i < arr.size(); i++) {
            LoaiSP_DTO loaiSP = arr.get(i);
            model.addRow(new Object[]{
-               i + 1, loaiSP.getMaLoaiSP(), loaiSP.getTenLoaiSP(), loaiSP.getMoTa()
+             loaiSP.getMaLoaiSP(), loaiSP.getTenLoaiSP(), loaiSP.getMoTa(),loaiSP.getTrangThai()
+           });
+        }
+        tblLoaiSP.setModel(model);
+        
+        tblLoaiSP.getSelectionModel().addListSelectionListener((e) -> {
+            if(tblLoaiSP.getSelectedRow() >= 0){
+                txtMaLoai.setText(tblLoaiSP.getValueAt(tblLoaiSP.getSelectedRow(), 0).toString());
+                txtTenLoai.setText(tblLoaiSP.getValueAt(tblLoaiSP.getSelectedRow(), 1).toString());
+                txtMota.setText(tblLoaiSP.getValueAt(tblLoaiSP.getSelectedRow(), 2).toString());
+            }
+        });
+    }
+
+    private void reload() {
+        clear();
+        tblLoaiSP.getSelectionModel().clearSelection();
+        loadLoaiSP();
+    }
+
+    private void clear() {
+        txtMaLoai.setText("");
+        txtTenLoai.setText("");
+        txtMota.setText("");
+        txtTimkiem.setText("");
+    }
+
+    private void themLoaiSP(){
+        if( txtTenLoai.getText().equals("") || txtMota.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Vui lòng nhập đầy đủ thông tin");
+        }
+        else{
+            LoaiSP_DTO loaiSP = new LoaiSP_DTO();
+            loaiSP.setMaLoaiSP(txtMaLoai.getText());
+            loaiSP.setTenLoaiSP(txtTenLoai.getText());
+            loaiSP.setMoTa(txtMota.getText());
+            lsp.insertLoaiSP(loaiSP);
+            loadLoaiSP();
+            clear();
+        }
+    }
+
+    private void xoaLoaiSP(){
+        if(txtMaLoai.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Vui lòng chọn loại sản phẩm cần xóa");
+        }
+        else{
+            lsp.deleteLoaiSP(txtMaLoai.getText());
+            loadLoaiSP();
+            reload();
+        }
+    }
+
+    private void suaLoaiSP(){
+        if(txtMaLoai.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Vui lòng chọn loại sản phẩm cần sửa");
+        }
+        else{
+            LoaiSP_DTO loaiSP = new LoaiSP_DTO();
+            loaiSP.setMaLoaiSP(txtMaLoai.getText());
+            loaiSP.setTenLoaiSP(txtTenLoai.getText());
+            loaiSP.setMoTa(txtMota.getText());
+            lsp.updateLoaiSP(loaiSP);
+            loadLoaiSP();
+            reload();
+        }
+    }
+
+    // tìm các loại sản phẩm theo txtTimkiem so sánh với txtTenLoai 
+    private void timLoaiSP(){
+        ArrayList<LoaiSP_DTO> arr = lsp.searchLoaiSP(txtTimkiem.getText());
+        DefaultTableModel model = (DefaultTableModel) tblLoaiSP.getModel();
+        model.setRowCount(0);
+        for (int i = 0; i < arr.size(); i++) {
+           LoaiSP_DTO loaiSP = arr.get(i);
+           model.addRow(new Object[]{
+             loaiSP.getMaLoaiSP(), loaiSP.getTenLoaiSP(), loaiSP.getMoTa(),loaiSP.getTrangThai()
            });
         }
         tblLoaiSP.setModel(model);
     }
+
+    private void xuatExcel(){
+        try {
+            Workbook workbook = new XSSFWorkbook();
+            Sheet sheet = workbook.createSheet("Product");
+            DefaultTableModel dtm = (DefaultTableModel) tblLoaiSP.getModel();
+            Row row = sheet.createRow(0);
+            for (int i = 0; i < dtm.getColumnCount(); i++) {
+                row.createCell(i).setCellValue(dtm.getColumnName(i));
+            }
+            for (int i = 0; i < dtm.getRowCount(); i++) {
+                row = sheet.createRow(i + 1);
+                for (int j = 0; j < dtm.getColumnCount(); j++) {
+                    row.createCell(j).setCellValue(dtm.getValueAt(i, j).toString());
+                }
+            }
+            JFileChooser fileChooser = new JFileChooser();
+            int userSelection = fileChooser.showSaveDialog(this);
+            if (userSelection == JFileChooser.APPROVE_OPTION) {
+                String path = fileChooser.getSelectedFile().getAbsolutePath();
+                if (!path.endsWith(".xlsx")) {
+                    path += ".xlsx";
+                }
+                FileOutputStream fileOut = new FileOutputStream(path);
+                workbook.write(fileOut);
+                fileOut.close();
+                JOptionPane.showMessageDialog(this, "Export successfully");
+            }
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    private void nhapExcel(){
+        try {
+            JFileChooser fileChooser = new JFileChooser();
+            int userSelection = fileChooser.showOpenDialog(this);
+            if (userSelection == JFileChooser.APPROVE_OPTION) {
+                String path = fileChooser.getSelectedFile().getAbsolutePath();
+                Workbook workbook = new XSSFWorkbook(path);
+                Sheet sheet = workbook.getSheetAt(0);
+                for (int i = 1; i <= sheet.getLastRowNum(); i++) {
+                    Row row = sheet.getRow(i);
+                    LoaiSP_DTO loaiSP = new LoaiSP_DTO();
+                    //loaiSP.setMaLoaiSP(row.getCell(0).getStringCellValue());
+                    // mã loại tăng tự động
+                    loaiSP.setTenLoaiSP(row.getCell(0).getStringCellValue());
+                    loaiSP.setMoTa(row.getCell(1).getStringCellValue());
+                    loaiSP.setTrangThai((int) row.getCell(2).getNumericCellValue());
+                    lsp.insertLoaiSP(loaiSP);
+                }
+                loadLoaiSP();
+                reload();
+                JOptionPane.showMessageDialog(this, "Import successfully");
+            }
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -59,7 +204,6 @@ public class pnLoaiSP extends javax.swing.JPanel {
         btnNhapEx = new javax.swing.JButton();
         jPanel12 = new javax.swing.JPanel();
         jPanel13 = new javax.swing.JPanel();
-        cmbLoaiSP = new javax.swing.JComboBox<>();
         txtTimkiem = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         btnTimkiem = new javax.swing.JButton();
@@ -67,6 +211,10 @@ public class pnLoaiSP extends javax.swing.JPanel {
         pnCenter1 = new javax.swing.JPanel();
         jScrollPane6 = new javax.swing.JScrollPane();
         tblLoaiSP = new javax.swing.JTable();
+        jPanel1 = new javax.swing.JPanel();
+        txtMaLoai = new javax.swing.JTextField();
+        txtTenLoai = new javax.swing.JTextField();
+        txtMota = new javax.swing.JTextField();
 
         pnLoaiSP.setLayout(new java.awt.BorderLayout());
 
@@ -80,6 +228,11 @@ public class pnLoaiSP extends javax.swing.JPanel {
         btnThem.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnThem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/add1.png"))); // NOI18N
         btnThem.setText("Thêm ");
+        btnThem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnThemActionPerformed(evt);
+            }
+        });
         jPanel11.add(btnThem);
 
         btnXoa.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -130,9 +283,6 @@ public class pnLoaiSP extends javax.swing.JPanel {
         jPanel13.setBackground(new java.awt.Color(204, 255, 255));
         jPanel13.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        cmbLoaiSP.setBackground(new java.awt.Color(204, 255, 255));
-        cmbLoaiSP.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tất cả", "Bánh ngọt ", "Bánh xe" }));
-
         txtTimkiem.setBackground(new java.awt.Color(153, 255, 255));
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -145,9 +295,7 @@ public class pnLoaiSP extends javax.swing.JPanel {
             jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel13Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(cmbLoaiSP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, 72, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtTimkiem, javax.swing.GroupLayout.DEFAULT_SIZE, 242, Short.MAX_VALUE)
                 .addContainerGap())
@@ -155,14 +303,10 @@ public class pnLoaiSP extends javax.swing.JPanel {
         jPanel13Layout.setVerticalGroup(
             jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel13Layout.createSequentialGroup()
-                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel13Layout.createSequentialGroup()
-                        .addComponent(jLabel7)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(cmbLoaiSP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel13Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(txtTimkiem)))
+                .addContainerGap()
+                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtTimkiem, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
+                    .addComponent(jLabel7))
                 .addContainerGap())
         );
 
@@ -194,8 +338,9 @@ public class pnLoaiSP extends javax.swing.JPanel {
 
         pnLoaiSP.add(pnTop1, java.awt.BorderLayout.PAGE_START);
 
-        pnCenter1.setBackground(new java.awt.Color(255, 204, 255));
+        pnCenter1.setBackground(new java.awt.Color(255, 255, 255));
         pnCenter1.setPreferredSize(new java.awt.Dimension(161, 450));
+        pnCenter1.setLayout(new java.awt.BorderLayout());
 
         tblLoaiSP.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -297,32 +442,32 @@ public class pnLoaiSP extends javax.swing.JPanel {
                 {null, null, null, null},
                 {null, null, null, null},
                 {null, null, null, null},
+                {null, null, null, null},
                 {null, null, null, null}
             },
             new String [] {
-                "STT", "Mã Loại", "Tên Loại", "Mô tả"
+                "Mã Loại", "Tên Loại", "Mô tả", "Trạng thái"
             }
         ));
         tblLoaiSP.setShowGrid(true);
         tblLoaiSP.setSurrendersFocusOnKeystroke(true);
         jScrollPane6.setViewportView(tblLoaiSP);
 
-        javax.swing.GroupLayout pnCenter1Layout = new javax.swing.GroupLayout(pnCenter1);
-        pnCenter1.setLayout(pnCenter1Layout);
-        pnCenter1Layout.setHorizontalGroup(
-            pnCenter1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnCenter1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 1349, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        pnCenter1Layout.setVerticalGroup(
-            pnCenter1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnCenter1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 549, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(152, Short.MAX_VALUE))
-        );
+        pnCenter1.add(jScrollPane6, java.awt.BorderLayout.CENTER);
+
+        txtMaLoai.setBorder(javax.swing.BorderFactory.createTitledBorder("Mã Loại"));
+        txtMaLoai.setPreferredSize(new java.awt.Dimension(120, 60));
+        jPanel1.add(txtMaLoai);
+
+        txtTenLoai.setBorder(javax.swing.BorderFactory.createTitledBorder("Tên Loại"));
+        txtTenLoai.setPreferredSize(new java.awt.Dimension(120, 60));
+        jPanel1.add(txtTenLoai);
+
+        txtMota.setBorder(javax.swing.BorderFactory.createTitledBorder(" Mô Tả"));
+        txtMota.setPreferredSize(new java.awt.Dimension(300, 60));
+        jPanel1.add(txtMota);
+
+        pnCenter1.add(jPanel1, java.awt.BorderLayout.PAGE_START);
 
         pnLoaiSP.add(pnCenter1, java.awt.BorderLayout.CENTER);
 
@@ -350,27 +495,40 @@ public class pnLoaiSP extends javax.swing.JPanel {
 
     private void btnXoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaActionPerformed
         // TODO add your handling code here:
+        xoaLoaiSP();
+        
     }//GEN-LAST:event_btnXoaActionPerformed
 
     private void btnSuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuaActionPerformed
         // TODO add your handling code here:
+        suaLoaiSP();
+        
     }//GEN-LAST:event_btnSuaActionPerformed
 
     private void btnXuatExActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXuatExActionPerformed
         // TODO add your handling code here:
+        xuatExcel();
     }//GEN-LAST:event_btnXuatExActionPerformed
 
     private void btnNhapExActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNhapExActionPerformed
         // TODO add your handling code here:
+        nhapExcel();
     }//GEN-LAST:event_btnNhapExActionPerformed
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
         // TODO add your handling code here:
+        reload();
     }//GEN-LAST:event_jButton13ActionPerformed
 
     private void btnTimkiemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTimkiemActionPerformed
         // TODO add your handling code here:
+        timLoaiSP();
     }//GEN-LAST:event_btnTimkiemActionPerformed
+
+    private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
+        // TODO add your handling code here:
+        themLoaiSP();
+    }//GEN-LAST:event_btnThemActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -380,9 +538,9 @@ public class pnLoaiSP extends javax.swing.JPanel {
     private javax.swing.JButton btnTimkiem;
     private javax.swing.JButton btnXoa;
     private javax.swing.JButton btnXuatEx;
-    private javax.swing.JComboBox<String> cmbLoaiSP;
     private javax.swing.JButton jButton13;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel13;
@@ -391,6 +549,9 @@ public class pnLoaiSP extends javax.swing.JPanel {
     private javax.swing.JPanel pnLoaiSP;
     private javax.swing.JPanel pnTop1;
     private javax.swing.JTable tblLoaiSP;
+    private javax.swing.JTextField txtMaLoai;
+    private javax.swing.JTextField txtMota;
+    private javax.swing.JTextField txtTenLoai;
     private javax.swing.JTextField txtTimkiem;
     // End of variables declaration//GEN-END:variables
 }

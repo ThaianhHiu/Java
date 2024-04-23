@@ -4,7 +4,7 @@ public class LoaiSP_DTO {
     private String MaLoaiSP;
     private String TenLoaiSP;
     private String MoTa;
-    private int isDelete;
+    private int TrangThai;
 
 
     public String getMaLoaiSP() {
@@ -24,6 +24,14 @@ public class LoaiSP_DTO {
     }
     public void setMoTa(String moTa) {
         MoTa = moTa;
+    }
+    
+    public int getTrangThai(){
+        return TrangThai;
+    }
+
+    public void setTrangThai(int trangThai){
+        TrangThai = trangThai;
     }
     
     

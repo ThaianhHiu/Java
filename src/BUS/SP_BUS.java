@@ -49,4 +49,21 @@ public class SP_BUS {
             else
                 return "Mã sản phẩm hợp lệ";
         }
+
+        public ArrayList<SP_DTO> danhsachSP(){
+            return SPDAO.danhsachSP();
+        }
+
+        // update so luong
+        public String updatesoluong(SP_DTO sp) {
+            if (SPDAO.updatesoluong(sp)) 
+            return "Sửa thành công"; 
+            else
+            return "Sửa thất bại";
+        }
+
+        // tìm kiếm sản phẩm 
+        public ArrayList<SP_DTO> timkiemSP(String tensp){
+            return SPDAO.searchSP(tensp);
+        }
     }

@@ -64,6 +64,32 @@ public class SP_DAO {
         return arr;
     }
 
+    // phương thức lấy mã sản phẩm , mã loại , tên sản phẩm , đơn giá , số lượng của sản phẩm
+    public ArrayList<SP_DTO> danhsachSP() {
+        ArrayList<SP_DTO> arr = new ArrayList<>();
+        try {
+            con = getConnection();
+            String sql = "SELECT MaSP, MaLoaiSP, TenSP, DonGia, SoLuong, HinhAnh FROM SanPham WHERE isDelete = 1";
+            PreparedStatement stmt = con.prepareStatement(sql);
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                SP_DTO sp = new SP_DTO();
+                sp.setMaSP(rs.getString("MaSP"));
+                sp.setMaLoaiSP(rs.getString("MaLoaiSP"));
+                sp.setTenSP(rs.getString("TenSP"));
+                sp.setDonGia(rs.getFloat("DonGia"));
+                sp.setSoLuong(rs.getInt("SoLuong"));
+                sp.setHinhAnh(rs.getString("HinhAnh"));
+                arr.add(sp);
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        } finally {
+            closeConnection();
+        }
+        return arr;
+    }
+
     public ArrayList<String> getMaLoaiSP() {
         ArrayList<String> arr = new ArrayList<>();
         try {
@@ -82,6 +108,26 @@ public class SP_DAO {
         return arr;
     }
 
+    // update số lượng sản phẩm theo 2 tham số là mã sản phẩm và số lượng
+    public boolean updatesoluong(SP_DTO sp) {
+        boolean result = false;
+        try {
+            con = getConnection();
+            String sql = "UPDATE SanPham SET SoLuong = ? WHERE MaSP = ?";
+            PreparedStatement stmt = con.prepareStatement(sql);
+            stmt.setInt(1, sp.getSoLuong());
+            stmt.setString(2, sp.getMaSP());
+            int rowsAffected = stmt.executeUpdate();
+            if (rowsAffected >= 1)
+                result = true;
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        } finally {
+            closeConnection();
+        }
+        return result;
+    }
+    
     
 
     public boolean addSP(SP_DTO sp) {
@@ -180,6 +226,37 @@ public class SP_DAO {
             con = getConnection();
             String sql = "SELECT * FROM SanPham WHERE isDelete = 1";
             PreparedStatement stmt = con.prepareStatement(sql);
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                SP_DTO sp = new SP_DTO();
+                sp.setMaSP(rs.getString("MaSP"));
+                sp.setMaLoaiSP(rs.getString("MaLoaiSP"));
+                sp.setTenSP(rs.getString("TenSP"));
+                sp.setDonGia(rs.getFloat("DonGia"));
+                sp.setSoLuong(rs.getInt("SoLuong"));
+                sp.setHinhAnh(rs.getString("HinhAnh"));
+                sp.setNgaySX(rs.getString("NgaySX"));
+                sp.setNgayHH(rs.getString("NgayHH"));
+                sp.setNoiSX(rs.getString("NoiSX"));
+                sp.setIsDelete(rs.getInt("isDelete"));
+                arr.add(sp);
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        } finally {
+            closeConnection();
+        }
+        return arr;
+    }
+
+    // tìm kiếm sản phẩm theo tên sản phẩm
+    public ArrayList<SP_DTO> searchSP(String tensp){
+        ArrayList<SP_DTO> arr = new ArrayList<>();
+        try {
+            con = getConnection();
+            String sql = "SELECT * FROM SanPham WHERE TenSP LIKE ? AND isDelete = 1";
+            PreparedStatement stmt = con.prepareStatement(sql);
+            stmt.setString(1, "%" + tensp + "%");
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
                 SP_DTO sp = new SP_DTO();
